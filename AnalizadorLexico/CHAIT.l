@@ -15,11 +15,11 @@
 
 "+"                     printf("Se lee el TOKEN de suma (+)\n");
 "-"                     printf("Se lee el TOKEN de resta (-)\n");
-"/"                     printf("Se lee el TOKEN de divicion (/)\n");
+"/"                     printf("Se lee el TOKEN de division (/)\n");
 "*"                     printf("Se lee el TOKEN de multiplicacion (*)\n");
-"!"                     printf("Se lee el TOKEN de fin de linea (!)");
-"("                     printf("Se lee el TOKEN de abre parentesis ( () )");
-")"                     printf("Se lee el TOKEN DE cierra parentesis ( ) )");
+"!"                     printf("Se lee el TOKEN de fin de linea (!)\n");
+"("                     printf("Se lee el TOKEN de abre parentesis \n");
+")"                     printf("Se lee el TOKEN DE cierra parentesis \n");
 
 
 [0-9]+                  printf("Se lee un numero: %s\n",yytext);
