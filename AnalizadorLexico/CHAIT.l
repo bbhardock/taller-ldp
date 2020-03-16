@@ -20,6 +20,8 @@
 
 [A-Za-z][A-Za-z0-9]*    printf("Se lee un nombre de variable: %s\n",yytext);
 
+"\""([A-Za-z0-9]|(\\(\"|\\|n|t)))*"\"" printf("Se lee un texto");
+
 [\r]                    // Ignora los retornos de carro
 [\n]                    // Ignora los saltos de linea
 [\t]*                   //Ignora los espacios vacios y tabulaciones
