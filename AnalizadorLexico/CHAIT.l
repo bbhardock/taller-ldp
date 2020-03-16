@@ -11,6 +11,8 @@
 
 "Sacar Boina"           printf("Se lee la palabra reservada Sacar Boina \n");
 
+"="                     printf("Se lee el TOKEN igualdad (=)\n");
+
 "+"                     printf("Se lee el TOKEN de suma (+)\n");
 "-"                     printf("Se lee el TOKEN de resta (-)\n");
 "/"                     printf("Se lee el TOKEN de divicion (/)\n");
