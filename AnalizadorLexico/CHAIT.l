@@ -26,7 +26,7 @@
 
 [\r]                    // Ignora los retornos de carro
 [\n]                    // Ignora los saltos de linea
-[\t]*                   //Ignora los espacios vacios y tabulaciones
+[ \t]*                   //Ignora los espacios vacios y tabulaciones
 
 .                       printf("Texto invalido: %s\n",yytext);
 %%
