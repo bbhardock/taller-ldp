@@ -850,7 +850,7 @@ printf("Se lee el TOKEN de resta (-)\n");
 case 11:
 YY_RULE_SETUP
 #line 18 "CHAIT.l"
-printf("Se lee el TOKEN de divicion (/)\n");
+printf("Se lee el TOKEN de division (/)\n");
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
@@ -860,17 +860,17 @@ printf("Se lee el TOKEN de multiplicacion (*)\n");
 case 13:
 YY_RULE_SETUP
 #line 20 "CHAIT.l"
-printf("Se lee el TOKEN de fin de linea (!)");
+printf("Se lee el TOKEN de fin de linea (!)\n");
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 21 "CHAIT.l"
-printf("Se lee el TOKEN de abre parentesis ( () )");
+printf("Se lee el TOKEN de abre parentesis \n");
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 22 "CHAIT.l"
-printf("Se lee el TOKEN DE cierra parentesis ( ) )");
+printf("Se lee el TOKEN DE cierra parentesis \n");
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
