@@ -11,6 +11,8 @@
 
 "Sacar Boina"           printf("Se lee la palabra reservada Sacar Boina \n");
 
+"="                     printf("Se lee el TOKEN igualdad (=)\n");
+
 "+"                     printf("Se lee el TOKEN de suma (+)\n");
 "-"                     printf("Se lee el TOKEN de resta (-)\n");
 "/"                     printf("Se lee el TOKEN de divicion (/)\n");
@@ -28,7 +30,7 @@
 
 [\r]                    // Ignora los retornos de carro
 [\n]                    // Ignora los saltos de linea
-[\t]*                   //Ignora los espacios vacios y tabulaciones
+[ \t]*                   //Ignora los espacios vacios y tabulaciones
 
 .                       printf("Texto invalido: %s\n",yytext);
 %%
