@@ -5,7 +5,7 @@
 %}
 
 %union{
-    char textValue'['2048];
+    char textValue[2048];
     int intValue;
 }
 
