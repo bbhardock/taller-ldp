@@ -5,7 +5,7 @@
 %}
 
 %union{
-    char textValue'['2048];
+    char textValue[2048];
     int intValue;
 }
 
@@ -27,7 +27,7 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-esespacio_blanco:   caracteres blancos 
+espacio_blanco:   caracteres blancos 
                     | caracteres de tabulación 
                     | retornos de carro 
                     | saltos de linea
