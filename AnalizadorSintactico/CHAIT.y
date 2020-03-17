@@ -32,7 +32,7 @@ espacio_blanco:   caracteres blancos
                     | retornos de carro 
                     | saltos de linea
                     ;
-def_var:    identificador '=' valor
+def_var:    VARIABLE '=' valor
             ;
 valor:      NUMERO
             |TEXTO
@@ -50,8 +50,8 @@ termino:    factor
 factor:     '('operacion_matematica ')' 
             | factor_primario
             ;
-factor_primario:    identificador 
-                    | entero
+factor_primario:    VARIABLE 
+                    | NUMERO
                     ;  
 muestra:    mostrar'('unir')'
             ;
@@ -59,9 +59,9 @@ unir:       definir '+' unir|
             definir
             ;
 definir:    TEXTO 
-            |identificador
+            |VARIABLE
             ;
-validacion: identificador
+validacion: VARIABLE
             |NUMERO
             ;
 bloque_if:  si Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
