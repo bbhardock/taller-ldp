@@ -20,8 +20,7 @@ inicio:     Poner Boina linea_logica_rec Sacar Boina
 linea_logica_rec:   linea_logica  linea_logica_rec
                     | linea_logica
                     ;
-linea_logica:   espacio_blanco
-                |statement_linea termino_linea
+linea_logica:   statement_linea termino_linea
                 |statement_condicional_ciclo
                 ;
 statement_linea:    def_var 
@@ -32,11 +31,6 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-espacio_blanco:   caracteres blancos 
-                    | caracteres de tabulación 
-                    | retornos de carro 
-                    | saltos de linea
-                    ;
 def_var:    VARIABLE '=' valor
             ;
 valor:      NUMERO
