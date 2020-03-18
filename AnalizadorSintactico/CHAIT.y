@@ -15,7 +15,7 @@
 %token NUMERO TEXTO VARIABLE
 
 %%
-inicio:     Poner Boina linea_logica_rec Sacar Boina
+inicio:     Poner_Boina linea_logica_rec Sacar_Boina
             ;
 linea_logica_rec:   linea_logica  linea_logica_rec
                     | linea_logica
@@ -63,11 +63,11 @@ definir:    TEXTO
 validacion: VARIABLE
             |NUMERO
             ;
-bloque_if:  si Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
+bloque_if:  si_Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
             ;
-bloque_while:   mientras Chait '{'validacion'}' '('linea_logica')'
+bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
                 ;
-bloque_for:     por cada Bollo '{'validacion'}' '('linea_logica')'
+bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
                 ;
 %%
 

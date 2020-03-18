@@ -8,15 +8,15 @@
 
 %%
 
-"Poner_Boina"           return Poner Boina;
+"Poner_Boina"           return Poner_Boina;
 
 "mostrar"               return mostrar;
-"si_Marcos"             return si Marcos;
-"mientras_Chait"        return mientras Chait;
-"por_cada_Bollo"        return por cada Bollo;
-"import_chait"          return import chait;
+"si_Marcos"             return si_Marcos;
+"mientras_Chait"        return mientras_Chait;
+"por_cada_Bollo"        return por_cada_Bollo;
+"import_chait"          return import_chait;
 
-"Sacar_Boina"           return Sacar Boina;
+"Sacar_Boina"           return Sacar_Boina;
 
 [=+-/*!()¿?{}]          return *yytext;
 
