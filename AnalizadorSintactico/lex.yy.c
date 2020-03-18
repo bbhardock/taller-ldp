@@ -515,8 +515,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "CHAIT.l"
-#line 3 "CHAIT.l"
+#line 1 "CHAIT.L"
+#line 3 "CHAIT.L"
     #include <stdio.h>
     #include <stdlib.h>
 
@@ -708,7 +708,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 9 "CHAIT.l"
+#line 9 "CHAIT.L"
 
 
 #line 715 "lex.yy.c"
@@ -796,83 +796,83 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "CHAIT.l"
-return Poner Boina;
+#line 11 "CHAIT.L"
+return Poner_Boina;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 13 "CHAIT.l"
+#line 13 "CHAIT.L"
 return mostrar;
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 14 "CHAIT.l"
-return si Marcos;
+#line 14 "CHAIT.L"
+return si_Marcos;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "CHAIT.l"
-return mientras Chait;
+#line 15 "CHAIT.L"
+return mientras_Chait;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "CHAIT.l"
-return por cada Bollo;
+#line 16 "CHAIT.L"
+return por_cada_Bollo;
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 17 "CHAIT.l"
-return import chait;
+#line 17 "CHAIT.L"
+return import_chait;
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 19 "CHAIT.l"
-return Sacar Boina;
+#line 19 "CHAIT.L"
+return Sacar_Boina;
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 21 "CHAIT.l"
+#line 21 "CHAIT.L"
 return *yytext;
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 23 "CHAIT.l"
+#line 23 "CHAIT.L"
 {strcpy(yylval.textValue,yytext); return NUMERO;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 25 "CHAIT.l"
+#line 25 "CHAIT.L"
 {strcpy(yylval.textValue,yytext); return VARIABLE;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 27 "CHAIT.l"
+#line 27 "CHAIT.L"
 {strcpy(yylval.textValue,yytext); return TEXTO;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 29 "CHAIT.l"
+#line 29 "CHAIT.L"
 // Ignora los retornos de carro
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 30 "CHAIT.l"
+#line 30 "CHAIT.L"
 // Ignora los saltos de linea
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 31 "CHAIT.l"
+#line 31 "CHAIT.L"
 //Ignora los espacios vacios y tabulaciones
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 33 "CHAIT.l"
+#line 33 "CHAIT.L"
 printf("CHAIT QUEDO invalido: %s\n",yytext);
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 34 "CHAIT.l"
+#line 34 "CHAIT.L"
 ECHO;
 	YY_BREAK
 #line 879 "lex.yy.c"
@@ -1873,6 +1873,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 34 "CHAIT.l"
+#line 34 "CHAIT.L"
 
 

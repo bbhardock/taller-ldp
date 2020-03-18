@@ -8,6 +8,7 @@
 "mientras_Chait"        printf("Se lee la palabra reservada mientras Chait \n");
 "por_cada_Bollo"        printf("Se lee la palabra reservada por cada Bollo \n");
 "import_chait"          printf("Se lee la palabra reservada import chait \n");
+"contrario"             printf("Se lee la palabra reservada contrario \n");
 
 "Sacar_Boina"           printf("Se lee la palabra reservada Sacar Boina \n");
 
@@ -18,7 +19,7 @@
 "/"                     printf("Se lee el TOKEN de division (/)\n");
 "*"                     printf("Se lee el TOKEN de multiplicacion (*)\n");
 
-"!"                     printf("Se lee el TOKEN de fin de linea (!)\n");
+"!"                     printf("Se lee el TOKEN de termino_linea (!)\n");
 
 "("                     printf("Se lee el TOKEN de abre parentesis \n");
 ")"                     printf("Se lee el TOKEN DE cierra parentesis \n");

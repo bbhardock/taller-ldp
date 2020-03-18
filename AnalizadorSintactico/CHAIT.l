@@ -15,10 +15,13 @@
 "mientras_Chait"        return mientras_Chait;
 "por_cada_Bollo"        return por_cada_Bollo;
 "import_chait"          return import_chait;
+"contrario"             return contrario;
 
 "Sacar_Boina"           return Sacar_Boina;
 
 [=+-/*!()¿?{}]          return *yytext;
+
+!                       {strcpy(yylval.textValue,yytext); return termino_linea;}
 
 [0-9]+                  {strcpy(yylval.textValue,yytext); return NUMERO;}
 
