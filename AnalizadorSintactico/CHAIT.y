@@ -11,7 +11,7 @@
     int intValue;
 }
 
-%token Poner_Boina mostrar_si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina
+%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina
 %token NUMERO TEXTO VARIABLE
 
 %%
