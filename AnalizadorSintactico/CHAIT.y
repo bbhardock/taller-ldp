@@ -1,7 +1,9 @@
 %{
     #include <stdio.h>
     #include <stdlib.h>
- 
+    
+    int yylex();
+    void yyerror(char*);
 %}
 
 %union{
@@ -13,11 +15,14 @@
 %token NUMERO TEXTO VARIABLE
 
 %%
-inicio:     Poner Boina '{'linea_logica'}' Sacar Boina
+inicio:     Poner Boina linea_logica Sacar Boina
             ;
-linea_logica:   '[''{'espacio_blanco'}'']''['statement_linea']'termino_linea 
-                | '[''{'espacio_blanco'}'']'statement_condicional_ciclo
-                | '[''{'espacio_blanco'}'']'
+linea_logica:   linea_logica2 '+' linea_logica 
+                | linea_logica2 
+                ;
+linea_logica2:  espacio_blanco
+                |statement_linea '+' termino_linea
+                |statement_condicional_ciclo
                 ;
 statement_linea:    def_var 
                     | muestra 
@@ -71,6 +76,11 @@ bloque_while:   mientras Chait '{'validacion'}' '('linea_logica')'
 bloque_for:     por cada Bollo '{'validacion'}' '('linea_logica')'
                 ;
 %%
+
+void yyerror(char* texto){
+    printf("ERROR: %s\n",texto);
+}
+
 int main(void){
     yyparse();
 
