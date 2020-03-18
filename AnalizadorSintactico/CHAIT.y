@@ -15,13 +15,13 @@
 %token NUMERO TEXTO VARIABLE
 
 %%
-inicio:     Poner Boina linea_logica Sacar Boina
+inicio:     Poner Boina linea_logica_rec Sacar Boina
             ;
-linea_logica:   linea_logica2 '+' linea_logica 
-                | linea_logica2 
+linea_logica_rec:   linea_logica  linea_logica_rec
+                | linea_logica
                 ;
-linea_logica2:  espacio_blanco
-                |statement_linea '+' termino_linea
+linea_logica:  espacio_blanco
+                |statement_linea termino_linea
                 |statement_condicional_ciclo
                 ;
 statement_linea:    def_var 
