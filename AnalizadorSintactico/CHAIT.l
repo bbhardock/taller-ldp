@@ -19,9 +19,9 @@
 
 "Sacar_Boina"           return Sacar_Boina;
 
-[=+-/*!()¿?{}]          return *yytext;
+"!"                     return termino_linea;
 
-!                       {strcpy(yylval.textValue,yytext); return termino_linea;}
+[=+-/*!()¿?{}]          return *yytext;
 
 [0-9]+                  {strcpy(yylval.textValue,yytext); return NUMERO;}
 
