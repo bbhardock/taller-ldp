@@ -1,15 +1,15 @@
 
 %%
 
-"Poner Boina"           printf("Se lee la palabra reservada Poner Boina \n");  
+"Poner_Boina"           printf("Se lee la palabra reservada Poner Boina \n");  
 
 "mostrar"               printf("Se lee la palabra reservada mostrar \n");
-"si Marcos"             printf("Se lee la palabra reservada si Marcos \n");
-"mientras Chait"        printf("Se lee la palabra reservada mientras Chait \n");
-"por cada Bollo"        printf("Se lee la palabra reservada por cada Bollo \n");
-"import chait"          printf("Se lee la palabra reservada import chait \n");
+"si_Marcos"             printf("Se lee la palabra reservada si Marcos \n");
+"mientras_Chait"        printf("Se lee la palabra reservada mientras Chait \n");
+"por_cada_Bollo"        printf("Se lee la palabra reservada por cada Bollo \n");
+"import_chait"          printf("Se lee la palabra reservada import chait \n");
 
-"Sacar Boina"           printf("Se lee la palabra reservada Sacar Boina \n");
+"Sacar_Boina"           printf("Se lee la palabra reservada Sacar Boina \n");
 
 "="                     printf("Se lee el TOKEN igualdad (=)\n");
 
