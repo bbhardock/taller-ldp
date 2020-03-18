@@ -31,11 +31,6 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-espacio_blanco:   caracteres blancos 
-                    | caracteres de tabulación 
-                    | retornos de carro 
-                    | saltos de linea
-                    ;
 def_var:    VARIABLE '=' valor
             ;
 valor:      NUMERO
