@@ -20,8 +20,7 @@ inicio:     Poner Boina linea_logica_rec Sacar Boina
 linea_logica_rec:   linea_logica  linea_logica_rec
                     | linea_logica
                     ;
-linea_logica:   espacio_blanco
-                |statement_linea termino_linea
+linea_logica:   statement_linea termino_linea
                 |statement_condicional_ciclo
                 ;
 statement_linea:    def_var 
