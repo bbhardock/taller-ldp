@@ -33,8 +33,7 @@ statement_condicional_ciclo:    bloque_if
                                 ;
 def_var:    VARIABLE '=' valor
             ;
-valor:      NUMERO
-            |TEXTO
+valor:      
             |VARIABLE 
             |operacion_matematica
             ;
@@ -46,10 +45,10 @@ termino:    factor
             | factor '*' termino 
             | factor '/' termino
             ;
-factor:     '('operacion_matematica ')' 
+factor:     '('operacion_matematica')' 
             | factor_primario
             ;
-factor_primario:    VARIABLE 
+factor_primario:    TEXTO 
                     | NUMERO
                     ;  
 muestra:    mostrar'('unir')'
