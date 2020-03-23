@@ -528,7 +528,7 @@ char *yytext;
 
     #include "y.tab.h"
 
-    extern int lineCounter = 1;
+    extern int lineCounter;
 #line 533 "lex.yy.c"
 
 #define INITIAL 0
@@ -876,7 +876,7 @@ case 15:
 /* rule 15 can match eol */
 YY_RULE_SETUP
 #line 35 "CHAIT.l"
-{lineCounter++}// Ignora los saltos de linea
+{lineCounter++;} // Ignora los saltos de linea
 	YY_BREAK
 case 16:
 YY_RULE_SETUP

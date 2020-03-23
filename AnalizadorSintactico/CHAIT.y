@@ -35,7 +35,7 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-def_var:    VARIABLE {printf("Chait dijo que la varaible %s\n se declaro",$1);}'=' valor
+def_var:    VARIABLE {printf("Chait dijo que la variable %s se declaro \n",$1);}'=' valor
             ;
 valor:      
             |VARIABLE 
@@ -75,7 +75,7 @@ bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
 %%
 
 void yyerror(char* texto){
-    printf("¡ERROR! ¿¿CUANDO VA A APRENDER CHAIT?? Linea: %i %s\n",lineCounter,texto);
+    printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT?? \n",texto,lineCounter);
 }
 
 int main(void){

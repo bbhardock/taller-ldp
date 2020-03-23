@@ -1420,7 +1420,7 @@ yyreduce:
 
 /* Line 1464 of yacc.c  */
 #line 38 "CHAIT.y"
-    {printf("Chait dijo que la varaible %s\n se declaro",(yyvsp[(1) - (1)].textValue));}
+    {printf("Chait dijo que la variable %s se declaro \n",(yyvsp[(1) - (1)].textValue));}
     break;
 
   case 28:
@@ -1441,7 +1441,7 @@ yyreduce:
 
 /* Line 1464 of yacc.c  */
 #line 61 "CHAIT.y"
-    { printf("%1", (yyvsp[(1) - (1)].textValue));}
+    { printf("%s", (yyvsp[(1) - (1)].textValue));}
     break;
 
   case 32:
@@ -1677,7 +1677,7 @@ yyreturn:
 
 
 void yyerror(char* texto){
-    printf("¡ERROR! ¿¿CUANDO VA A APRENDER CHAIT?? Linea: %i %s\n",lineCounter,texto);
+    printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT?? \n",texto,lineCounter);
 }
 
 int main(void){
