@@ -38,7 +38,7 @@ statement_condicional_ciclo:    bloque_if
 def_var:    VARIABLE {printf("Chait dijo que la variable %s se declaro \n",$1);}'=' valor
             ;
 valor:      
-            |VARIABLE 
+            |TEXTO 
             |operacion_matematica
             ;
 operacion_matematica:   termino 
@@ -52,7 +52,7 @@ termino:    factor
 factor:     '('operacion_matematica')' 
             | factor_primario
             ;
-factor_primario:    TEXTO 
+factor_primario:    VARIABLE 
                     | NUMERO
                     ;  
 muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
