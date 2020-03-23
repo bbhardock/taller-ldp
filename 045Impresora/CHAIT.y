@@ -19,7 +19,7 @@
 %type <textValue> VARIABLE NUMERO TEXTO definir unir
 
 %%
-inicio:     Poner_Boina linea_logica_rec Sacar_Boina
+inicio:     Poner_Boina { inicio(); } linea_logica_rec { fin(); } Sacar_Boina
             ;
 linea_logica_rec:   linea_logica  linea_logica_rec
                     | linea_logica
@@ -35,33 +35,33 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-def_var:    VARIABLE {printf("Chait dijo que la variable %s se declaro \n",$1);}'=' valor
+def_var:    VARIABLE '=' valor { CrearVariable($1,$3); }
             ;
 valor:      
-            |TEXTO 
-            |operacion_matematica
+            |TEXTO { leyendoTipoString(1); strcpy($$, $1); }
+            |operacion_matematica { leyendoTipoString(0); strcpy($$, $1); }
             ;
-operacion_matematica:   termino 
-                        | termino '+' operacion_matematica
-                        | termino '-' operacion_matematica
+operacion_matematica:   termino { strcpy($$,$1); }
+                        | termino '+' operacion_matematica { concatenaOperacion($$,$1,"+",$3); }
+                        | termino '-' operacion_matematica { concatenaOperacion($$,$1,"-",$3); }
                         ;
-termino:    factor
-            | factor '*' termino 
-            | factor '/' termino
+termino:    factor { strcpy($$,$1); }
+            | factor '*' termino  { concatenaOperacion($$,$1,"*",$3); }
+            | factor '/' termino  { concatenaOperacion($$,$1,"/",$3); }
             ;
-factor:     '('operacion_matematica')' 
-            | factor_primario
+factor:     '('operacion_matematica')' { strcpy($$,$1); }
+            | factor_primario          { strcpy($$,$1); }
             ;
-factor_primario:    VARIABLE 
-                    | NUMERO
+factor_primario:    VARIABLE { strcpy($$,$1); }
+                    | NUMERO { strcpy($$,$1); }
                     ;  
-muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
+muestra:    mostrar '('unir')' { imprimir($2); }
             ;
-unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
-            definir { printf("%s", $1);}
+unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1); } | 
+            definir { strcpy($$,$1); }
             ;
-definir:    TEXTO {strcpy( $$, $1);} 
-            |VARIABLE {strcpy( $$, $1);} 
+definir:    TEXTO { imprimirTexto($1,$$); } 
+            |VARIABLE { imprimirVariable($1,$$); }
             ;
 validacion: VARIABLE
             |NUMERO
