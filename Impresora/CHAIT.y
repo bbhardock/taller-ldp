@@ -19,7 +19,7 @@
 %token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type <textValue> VARIABLE NUMERO TEXTO definir unir
+%type <textValue> VARIABLE NUMERO TEXTO definir unir valor
 
 %%
 inicio:     Poner_Boina { inicio(); } linea_logica_rec Sacar_Boina { fin(); }
@@ -38,10 +38,10 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-def_var:    VARIABLE {printf("Chait dijo que la variable %s se declaro \n",$1);}'=' valor
+def_var:    VARIABLE '=' valor { CrearVariable($1,$3);}
             ;
 valor:      
-            |TEXTO 
+            |TEXTO { leyendoString(1); strcpy($$,$1); }
             |operacion_matematica
             ;
 operacion_matematica:   termino 
