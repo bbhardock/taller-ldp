@@ -1,7 +1,7 @@
 %{
     #include <stdio.h>
     #include <stdlib.h>
-    
+    #include <string.h>
     int yylex();
     void yyerror(char*);
 
@@ -15,6 +15,8 @@
 
 %token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario
 %token NUMERO TEXTO VARIABLE termino_linea
+
+%type <textValue> VARIABLE 
 
 %%
 inicio:     Poner_Boina linea_logica_rec Sacar_Boina
@@ -33,7 +35,7 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for 
                                 | bloque_while
                                 ;
-def_var:    VARIABLE '=' valor
+def_var:    VARIABLE {printf("Chait dijo que la varaible %s\n se declaro",$2);}'=' valor
             ;
 valor:      
             |VARIABLE 
@@ -53,13 +55,13 @@ factor:     '('operacion_matematica')'
 factor_primario:    TEXTO 
                     | NUMERO
                     ;  
-muestra:    mostrar'('unir')'
+muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
             ;
-unir:       definir '+' unir|
-            definir
+unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
+            definir { printf("%1, $1);}
             ;
-definir:    TEXTO 
-            |VARIABLE
+definir:    TEXTO {strcpy( $$, $1);} 
+            |VARIABLE {strcpy( $$, $1);} 
             ;
 validacion: VARIABLE
             |NUMERO
@@ -73,7 +75,7 @@ bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
 %%
 
 void yyerror(char* texto){
-    printf("ERROR EN LA LINEA:%i %s\n",lineCounter,texto);
+    printf("¡ERROR! ¿¿CUANDO VA A APRENDER CHAIT?? Linea: %i %s\n",lineCounter,texto);
 }
 
 int main(void){
