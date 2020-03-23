@@ -19,7 +19,7 @@
 %type <textValue> VARIABLE NUMERO TEXTO definir unir
 
 %%
-inicio:     Poner_Boina linea_logica_rec Sacar_Boina
+inicio:     Poner_Boina {printf("Se ha iniciado el programa \n");} linea_logica_rec Sacar_Boina {printf("Se ha finalizado el programa \n");}
             ;
 linea_logica_rec:   linea_logica  linea_logica_rec
                     | linea_logica
@@ -55,7 +55,7 @@ factor:     '('operacion_matematica')'
 factor_primario:    TEXTO 
                     | NUMERO
                     ;  
-muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
+muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')' {printf("\n");}
             ;
 unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
             definir { printf("%s", $1);}
