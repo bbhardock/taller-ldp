@@ -16,11 +16,11 @@
     int intValue;
 }
 
-%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario
+%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario 
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type <textValue> VARIABLE NUMERO TEXTO definir unir valor
-
+%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario
+ 
 %%
 inicio:     Poner_Boina { inicio(); } linea_logica_rec Sacar_Boina { fin(); }
             ;
@@ -41,22 +41,22 @@ statement_condicional_ciclo:    bloque_if
 def_var:    VARIABLE '=' valor { CrearVariable($1,$3);}
             ;
 valor:      
-            |TEXTO { leyendoString(1); strcpy($$,$1); }
-            |operacion_matematica
+            |TEXTO { leyendoTipoString(1); strcpy($$,$1); }
+            |operacion_matematica { leyendoTipoString(0); strcpy($$,$1);}
             ;
-operacion_matematica:   termino 
-                        | termino '+' operacion_matematica
-                        | termino '-' operacion_matematica
+operacion_matematica:   termino { strcpy($$,$1); }
+                        | termino '+' operacion_matematica { concatenaOperacion($$,$1,'+',$3); }
+                        | termino '-' operacion_matematica { concatenaOperacion($$,$1,'-',$3); }
                         ;
-termino:    factor
-            | factor '*' termino 
-            | factor '/' termino
+termino:    factor { strcpy($$,$1); }
+            | factor '*' termino { concatenaOperacion($$,$1,'*',$3); }
+            | factor '/' termino { concatenaOperacion($$,$1,'/',$3); }
             ;
 factor:     '('operacion_matematica')' 
             | factor_primario
             ;
-factor_primario:    VARIABLE 
-                    | NUMERO
+factor_primario:    VARIABLE { strcpy($$,$1); }
+                    | NUMERO { strcpy($$,$1); }
                     ;  
 muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
             ;

@@ -27,4 +27,15 @@ void CrearVariable(char* nombreVariable,char* valor){
         printf("\tint %s = %s;\n", nombreVariable, valor);
     }
 }
+
+void concatenaOperacion (char* origen, char* primero, char* operando, char* segundo) {
+    strcat(primero,operando);
+    strcat(primero,segundo);
+    strcpy(origen,primero);
+}
+
+void RedefiniendoVariable (char* nombreVariable, char* valor) {
+    printf("\t%s = %s;\n",nombreVariable,valor);
+}
+
 #endif
