@@ -4,6 +4,8 @@
     #include <stdlib.h>
 
     #include "y.tab.h"
+
+    extern int lineCounter = 1;
 %}
 
 %%
@@ -30,7 +32,7 @@
 \"([A-Za-z0-9 ]|(\\(\"|\\|n|t)))*\"  {strcpy(yylval.textValue,yytext); return TEXTO;}
 
 [\r]                    // Ignora los retornos de carro
-[\n]                    // Ignora los saltos de linea
+[\n]                    {lineCounter++}// Ignora los saltos de linea
 [ \t]*                   //Ignora los espacios vacios y tabulaciones
 
 .                       printf("CHAIT QUEDO invalido: %s\n",yytext);

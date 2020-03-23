@@ -4,6 +4,8 @@
     
     int yylex();
     void yyerror(char*);
+
+    int lineCounter = 1;
 %}
 
 %union{
@@ -71,7 +73,7 @@ bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
 %%
 
 void yyerror(char* texto){
-    printf("ERROR: %s\n",texto);
+    printf("ERROR EN LA LINEA:%i %s\n",lineCounter,texto);
 }
 
 int main(void){
