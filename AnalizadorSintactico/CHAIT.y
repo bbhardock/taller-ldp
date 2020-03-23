@@ -58,7 +58,7 @@ factor_primario:    TEXTO
 muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
             ;
 unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
-            definir { printf("%1", $1);}
+            definir { printf("%s", $1);}
             ;
 definir:    TEXTO {strcpy( $$, $1);} 
             |VARIABLE {strcpy( $$, $1);} 
