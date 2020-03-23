@@ -30,7 +30,7 @@
 
 [0-9]+                  printf("Se lee un numero: %s\n",yytext);
 
-[A-Za-z][A-Za-z0-9]*    printf("Se lee un nombre de variable: %s\n",yytext);
+[A-Za-z][A-Za-z0-9_]*    printf("Se lee un nombre de variable: %s\n",yytext);
 
 \"([A-Za-z0-9 ]|(\\(\"|\\|n|t)))*\" printf("Se lee un texto \n");
 

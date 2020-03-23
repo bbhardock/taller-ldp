@@ -1,7 +1,7 @@
 Poner_Boina
 
-nombre_bueno="Marcos Chait"!
-nombre_malo="Charcos Mait"!
+nombre_bueno = "MarcosChait"!
+nombre_malo= "CharcosMait"!
 mostrar("Hola soy" + nombre_bueno + nombre_malo)!
 
 Sacar_Boina

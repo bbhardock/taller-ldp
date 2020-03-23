@@ -27,7 +27,7 @@
 
 [0-9]+                  {strcpy(yylval.textValue,yytext); return NUMERO;}
 
-[A-Za-z][A-Za-z0-9]*    {strcpy(yylval.textValue,yytext); return VARIABLE;}
+[A-Za-z][A-Za-z0-9_]*    {strcpy(yylval.textValue,yytext); return VARIABLE;}
 
 \"([A-Za-z0-9 ]|(\\(\"|\\|n|t)))*\"  {strcpy(yylval.textValue,yytext); return TEXTO;}
 
