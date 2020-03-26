@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 int main() {
-	char nombre_bueno[2048] = "Marcos Chait";
-	char nombre_malo[2048] = "Charcos Mait";
-	printf("%s%s%s%s", "Hola soy ", nombre_bueno, " no ", nombre_malo);
+	int variable_uno = 1;
+	int variable_dos = 2;
+	int suma = 1+2;
+	printf("%s", suma);
 
  return 0;
 }

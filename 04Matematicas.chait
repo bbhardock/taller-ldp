@@ -1,0 +1,10 @@
+Poner_Boina
+
+variable_uno=1!
+variable_dos=2!
+
+suma=1+2!
+
+mostrar(suma)!
+
+Sacar_Boina
