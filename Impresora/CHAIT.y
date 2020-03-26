@@ -19,7 +19,7 @@
 %token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario 
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario
+%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion
  
 %%
 inicio:     Poner_Boina { inicio(); } linea_logica_rec Sacar_Boina { fin(); }
@@ -32,7 +32,6 @@ linea_logica:   statement_linea termino_linea
                 ;
 statement_linea:    def_var 
                     | muestra 
-                    | operacion_matematica
                     ;
 statement_condicional_ciclo:    bloque_if 
                                 | bloque_for 
@@ -65,8 +64,8 @@ unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} |
 definir:    TEXTO { imprimirTexto($1,$$); } 
             |VARIABLE { imprimirVariable($1,$$); } 
             ;
-validacion: VARIABLE
-            |NUMERO
+validacion: VARIABLE { strcpy($$,$1); }
+            |NUMERO { strcpy($$,$1); }
             ;
 bloque_if:  si_Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
             ;
