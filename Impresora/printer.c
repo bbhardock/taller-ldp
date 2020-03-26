@@ -13,7 +13,7 @@ void inicio(){
 }
 
 void fin(){
-    printf("return 0;\n}");
+    printf("\n return 0;\n}");
 }
 
 void leyendoTipoString(int esString){
