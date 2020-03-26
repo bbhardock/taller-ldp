@@ -8,12 +8,12 @@
 int leyendoString = 0;
 
 void inicio(){
-    printf("#include <studio.h>\n#include <stdlib.h>\n#include <string.h>\n");
+    printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
     printf("int main() {\n");
 }
 
 void fin(){
-    printf("return 0;\n}");
+    printf("\n return 0;\n}");
 }
 
 void leyendoTipoString(int esString){
