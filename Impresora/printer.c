@@ -52,13 +52,13 @@ void imprimir(char* comodines){
 void imprimirVariable(char* valor, char* origen){
     printVars[contadorVars] = valor;
     contadorVars++;
-    strcopy(origen,"%s");
+    strcpy(origen,"%s");
 }
 
 void imprimirTexto(char* valor, char* origen){
     printVars[contadorVars] = valor;
     contadorVars++;
-    strcopy(origen,"%s");
+    strcpy(origen,"%s");
 }
 
 #endif

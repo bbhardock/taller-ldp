@@ -1532,28 +1532,28 @@ yyreduce:
 
 /* Line 1464 of yacc.c  */
 #line 62 "CHAIT.y"
-    { printf("%s junto con %s", (yyvsp[(1) - (3)].textValue), (yyvsp[(3) - (3)].textValue));}
+    { strcat((yyvsp[(1) - (3)].textValue),(yyvsp[(3) - (3)].textValue)); strcpy((yyval.textValue),(yyvsp[(1) - (3)].textValue));}
     break;
 
   case 29:
 
 /* Line 1464 of yacc.c  */
 #line 63 "CHAIT.y"
-    { printf("%s", (yyvsp[(1) - (1)].textValue));}
+    { strcpy((yyval.textValue),(yyvsp[(1) - (1)].textValue));}
     break;
 
   case 30:
 
 /* Line 1464 of yacc.c  */
 #line 65 "CHAIT.y"
-    { imprimirTexto((yyvsp[(1) - (1)].textValue)); }
+    { imprimirTexto((yyvsp[(1) - (1)].textValue),(yyval.textValue)); }
     break;
 
   case 31:
 
 /* Line 1464 of yacc.c  */
 #line 66 "CHAIT.y"
-    { imprimirVariable((yyvsp[(1) - (1)].textValue)); }
+    { imprimirVariable((yyvsp[(1) - (1)].textValue),(yyval.textValue)); }
     break;
 
 

@@ -59,7 +59,7 @@ factor_primario:    VARIABLE { strcpy($$,$1); }
                     ;  
 muestra:    mostrar '('unir')' { imprimir($3); }
             ;
-unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1)} | 
+unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} | 
             definir { strcpy($$,$1);}
             ;
 definir:    TEXTO { imprimirTexto($1,$$); } 
