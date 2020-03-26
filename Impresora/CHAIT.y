@@ -58,13 +58,13 @@ factor:     '('operacion_matematica')' { concatenaOperacion($$,"(",$2,")"); }
 factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
                     ;  
-muestra:    mostrar '('unir')'
+muestra:    mostrar '('unir')' { imprimir($3); }
             ;
 unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
             definir { printf("%s", $1);}
             ;
-definir:    TEXTO {strcpy( $$, $1);} 
-            |VARIABLE {strcpy( $$, $1);} 
+definir:    TEXTO { imprimirTextp($1); } 
+            |VARIABLE { imprimirVariable($1); } 
             ;
 validacion: VARIABLE
             |NUMERO

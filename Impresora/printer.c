@@ -49,4 +49,12 @@ void imprimir(char* comodines){
     contadorVars = 0;
 }
 
+void imprimirVariable(char* valor, char* origen){
+
+}
+
+void imprimirTexto(){
+
+}
+
 #endif
