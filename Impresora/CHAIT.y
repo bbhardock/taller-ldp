@@ -62,7 +62,7 @@ muestra:    mostrar '('unir')' { imprimir($3); }
 unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
             definir { printf("%s", $1);}
             ;
-definir:    TEXTO { imprimirTextp($1); } 
+definir:    TEXTO { imprimirTexto($1); } 
             |VARIABLE { imprimirVariable($1); } 
             ;
 validacion: VARIABLE

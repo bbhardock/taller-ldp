@@ -45,7 +45,7 @@ void imprimir(char* comodines){
     for(int i = 0; i<contadorVars;i++){
         printf(", %s",printVars[i]);
     }
-    print(");\n");
+    printf(");\n");
     contadorVars = 0;
 }
 
