@@ -41,7 +41,7 @@ void RedefiniendoVariable (char* nombreVariable, char* valor) {
 }
 
 void imprimir(char* comodines){
-    printf("\tprintf(\"%s\\n\"",comodines);
+    printf("\tprintf(\"%s\"",comodines);
     for(int i = 0; i<contadorVars;i++){
         printf(", %s",printVars[i]);
     }
@@ -52,7 +52,7 @@ void imprimir(char* comodines){
 void imprimirVariable(char* valor, char* origen){
     strcpy(printVars[contadorVars],valor);
     contadorVars++;
-    strcpy(origen,"%s");
+    strcpy(origen,"%i");
 }
 
 void imprimirTexto(char* valor, char* origen){
