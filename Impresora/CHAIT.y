@@ -45,20 +45,20 @@ valor:
             |operacion_matematica { leyendoTipoString(0); strcpy($$,$1);}
             ;
 operacion_matematica:   termino { strcpy($$,$1); }
-                        | termino '+' operacion_matematica { concatenaOperacion($$,$1,'+',$3); }
-                        | termino '-' operacion_matematica { concatenaOperacion($$,$1,'-',$3); }
+                        | termino '+' operacion_matematica { concatenaOperacion($$,$1,"+",$3); }
+                        | termino '-' operacion_matematica { concatenaOperacion($$,$1,"-",$3); }
                         ;
 termino:    factor { strcpy($$,$1); }
-            | factor '*' termino { concatenaOperacion($$,$1,'*',$3); }
-            | factor '/' termino { concatenaOperacion($$,$1,'/',$3); }
+            | factor '*' termino { concatenaOperacion($$,$1,"*",$3); }
+            | factor '/' termino { concatenaOperacion($$,$1,"/",$3); }
             ;
-factor:     '('operacion_matematica')' { concatenaOperacion($$,'(',$2,')'); }
+factor:     '('operacion_matematica')' { concatenaOperacion($$,"(",$2,")"); }
             | factor_primario { strcpy($$,$1); }
             ;
 factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
                     ;  
-muestra:    mostrar {printf("Chait dice que se va a imprimir: ");}'('unir')'
+muestra:    mostrar '('unir')'
             ;
 unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
             definir { printf("%s", $1);}

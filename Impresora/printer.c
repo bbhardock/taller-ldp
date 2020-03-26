@@ -6,6 +6,8 @@
 #include <string.h>
 
 int leyendoString = 0;
+char printVars[20][2048];
+int contadorVars;
 
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
@@ -36,6 +38,15 @@ void concatenaOperacion (char* origen, char* primero, char* operando, char* segu
 
 void RedefiniendoVariable (char* nombreVariable, char* valor) {
     printf("\t%s = %s;\n",nombreVariable,valor);
+}
+
+void imprimir(char* comodines){
+    printf("\tprintf(%s",comodines);
+    for(int i = 0; i<contadorVars;i++){
+        printf(", %s",printVars[i]);
+    }
+    print(");\n");
+    contadorVars = 0;
 }
 
 #endif
