@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 int main() {
-Chait dijo que la variable nombre_bueno se declaro 
-Chait dijo que la variable nombre_malo se declaro 
-Chait dice que se va a imprimir: nombre_malonombre_bueno junto con nombre_malo"Hola soy" junto con nombre_buenoreturn 0;
+	char nombre_bueno[2048] = "Marcos Chait";
+	char nombre_malo[2048] = "Charcos Mait";
+	printf("%s%s%s", "Hola soy ", nombre_bueno, nombre_malo);
+
+ return 0;
 }
