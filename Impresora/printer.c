@@ -49,6 +49,10 @@ void imprimir(char* comodines){
     contadorVars = 0;
 }
 
+void importChait(){
+    printf("\tprintf(\"%s\"");
+}
+
 void imprimirVariable(char* valor, char* origen){
     strcpy(printVars[contadorVars],valor);
     contadorVars++;
@@ -61,4 +65,7 @@ void imprimirTexto(char* valor, char* origen){
     strcpy(origen,"%s");
 }
 
+void validacionIf(char* val){
+    printf("\tif(",val,")");
+}
 #endif

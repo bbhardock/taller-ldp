@@ -57,6 +57,7 @@ factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
                     ;  
 muestra:    mostrar '('unir')' { imprimir($3); }
+            |mostrar '('import_chait')' { importChait(); }
             ;
 unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} | 
             definir { strcpy($$,$1);}
@@ -67,7 +68,7 @@ definir:    TEXTO { imprimirTexto($1,$$); }
 validacion: VARIABLE { strcpy($$,$1); }
             |NUMERO { strcpy($$,$1); }
             ;
-bloque_if:  si_Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
+bloque_if:  si_Marcos '¿'validacion { validacionIf($3); } '?' '('linea_logica')''['contrario '('linea_logica')'']'
             ;
 bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
                 ;
