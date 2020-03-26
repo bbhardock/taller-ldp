@@ -42,19 +42,19 @@ def_var:    VARIABLE '=' valor { CrearVariable($1,$3);}
 valor:      TEXTO { leyendoTipoString(1); strcpy($$,$1); }
             |operacion_matematica { leyendoTipoString(0); strcpy($$,$1);}
             ;
-operacion_matematica:   termino { strcpy($$,$1); }
+operacion_matematica:   termino
                         | termino '+' operacion_matematica { concatenaOperacion($$,$1,"+",$3); }
                         | termino '-' operacion_matematica { concatenaOperacion($$,$1,"-",$3); }
                         ;
-termino:    factor { strcpy($$,$1); }
+termino:    factor
             | factor '*' termino { concatenaOperacion($$,$1,"*",$3); }
             | factor '/' termino { concatenaOperacion($$,$1,"/",$3); }
             ;
-factor:     '('operacion_matematica')' { concatenaOperacion($$,"(",$2,")"); }
-            | factor_primario { strcpy($$,$1); }
+factor:     factor_primario
             ;
 factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
+                    |'('operacion_matematica')' { concatenaOperacion($$,"(",$2,")"); }
                     ;  
 muestra:    mostrar '('unir')' { imprimir($3); }
             |mostrar '('import_chait')' { importChait(); }
@@ -68,7 +68,7 @@ definir:    TEXTO { imprimirTexto($1,$$); }
 validacion: VARIABLE { strcpy($$,$1); }
             |NUMERO { strcpy($$,$1); }
             ;
-bloque_if:  si_Marcos '¿'validacion { validacionIf($3); } '?' '('linea_logica')''['contrario '('linea_logica')'']'
+bloque_if:  si_Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
             ;
 bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
                 ;

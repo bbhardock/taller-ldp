@@ -4,8 +4,8 @@
 int main() {
 	int variable_uno = 1;
 	int variable_dos = 2;
-	int suma = variable_uno+variable_dos*(6/3)+2;
-	printf("%i\n", suma);
+	int suma = variable_uno+variable_dos;
+	printf("%i", suma);
 
  return 0;
 }
