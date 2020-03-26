@@ -59,11 +59,11 @@ factor_primario:    VARIABLE { strcpy($$,$1); }
                     ;  
 muestra:    mostrar '('unir')' { imprimir($3); }
             ;
-unir:       definir '+' unir { printf("%s junto con %s", $1, $3);} | 
-            definir { printf("%s", $1);}
+unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1)} | 
+            definir { strcpy($$,$1);}
             ;
-definir:    TEXTO { imprimirTextp($1); } 
-            |VARIABLE { imprimirVariable($1); } 
+definir:    TEXTO { imprimirTexto($1,$$); } 
+            |VARIABLE { imprimirVariable($1,$$); } 
             ;
 validacion: VARIABLE
             |NUMERO

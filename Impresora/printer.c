@@ -7,7 +7,7 @@
 
 int leyendoString = 0;
 char printVars[20][2048];
-int contadorVars;
+int contadorVars = 0;
 
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
@@ -50,11 +50,15 @@ void imprimir(char* comodines){
 }
 
 void imprimirVariable(char* valor, char* origen){
-
+    printVars[contadorVars] = valor;
+    contadorVars++;
+    strcopy(origen,"%s");
 }
 
-void imprimirTexto(){
-
+void imprimirTexto(char* valor, char* origen){
+    printVars[contadorVars] = valor;
+    contadorVars++;
+    strcopy(origen,"%s");
 }
 
 #endif
