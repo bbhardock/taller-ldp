@@ -4,7 +4,7 @@
 int main() {
 	int variable_uno = 1;
 	int variable_dos = 2;
-	int suma = 1+2;
+	int suma = variable_uno+variable_dos;
 	printf("%s", suma);
 
  return 0;
