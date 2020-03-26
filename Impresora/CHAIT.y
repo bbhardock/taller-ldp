@@ -52,8 +52,8 @@ termino:    factor { strcpy($$,$1); }
             | factor '*' termino { concatenaOperacion($$,$1,'*',$3); }
             | factor '/' termino { concatenaOperacion($$,$1,'/',$3); }
             ;
-factor:     '('operacion_matematica')' 
-            | factor_primario
+factor:     '('operacion_matematica')' { concatenaOperacion($$,$1,'/',$3); }
+            | factor_primario { strcpy($$,$1); }
             ;
 factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
