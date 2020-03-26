@@ -1,3 +1,6 @@
 AnalizadorLexico/CHAIT.exe
 AnalizadorLexico/lex.yy.c
 .gitconfig
+Impresora/y.tab.c
+Impresora/y.tab.h
+Impresora/CHAIT.exe
