@@ -68,4 +68,6 @@ void imprimirTexto(char* valor, char* origen){
 void validacionIf(char* val){
     printf("\tif(",val,")");
 }
+
+
 #endif

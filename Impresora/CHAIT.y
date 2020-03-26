@@ -19,7 +19,7 @@
 %token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario 
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion
+%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion linea_logica statement_linea statement_condicional_ciclo
  
 %%
 inicio:     Poner_Boina { inicio(); } linea_logica_rec Sacar_Boina { fin(); }
@@ -27,17 +27,17 @@ inicio:     Poner_Boina { inicio(); } linea_logica_rec Sacar_Boina { fin(); }
 linea_logica_rec:   linea_logica  linea_logica_rec
                     | linea_logica
                     ;
-linea_logica:   statement_linea termino_linea
-                |statement_condicional_ciclo
+linea_logica:   statement_linea termino_linea   { strcpy($$,$1); }
+                |statement_condicional_ciclo    { strcpy($$,$1); }
                 ;
-statement_linea:    def_var 
-                    | muestra 
+statement_linea:    def_var     { strcpy($$,$1); }
+                    | muestra   { strcpy($$,$1); }
                     ;
-statement_condicional_ciclo:    bloque_if 
-                                | bloque_for 
-                                | bloque_while
+statement_condicional_ciclo:    bloque_if       { strcpy($$,$1); }
+                                | bloque_for    { strcpy($$,$1); }
+                                | bloque_while  { strcpy($$,$1); }
                                 ;
-def_var:    VARIABLE '=' valor { CrearVariable($1,$3);}
+def_var:    VARIABLE '=' valor { CrearVariable($1,$3); strcpy($$,$1); }
             ;
 valor:      TEXTO { leyendoTipoString(1); strcpy($$,$1); }
             |operacion_matematica { leyendoTipoString(0); strcpy($$,$1);}
@@ -56,7 +56,7 @@ factor:     '('operacion_matematica')' { concatenaOperacion($$,"(",$2,")"); }
 factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
                     ;  
-muestra:    mostrar '('unir')' { imprimir($3); }
+muestra:    mostrar '('unir')' { imprimir($3); strcpy($$,$1); }
             |mostrar '('import_chait')' { importChait(); }
             ;
 unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} | 
