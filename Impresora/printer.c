@@ -41,7 +41,7 @@ void RedefiniendoVariable (char* nombreVariable, char* valor) {
 }
 
 void imprimir(char* comodines){
-    printf("\tprintf(\"%s\"",comodines);
+    printf("\tprintf(\"%s\n\"",comodines);
     for(int i = 0; i<contadorVars;i++){
         printf(", %s",printVars[i]);
     }
