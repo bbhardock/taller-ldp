@@ -40,8 +40,7 @@ statement_condicional_ciclo:    bloque_if
                                 ;
 def_var:    VARIABLE '=' valor { CrearVariable($1,$3);}
             ;
-valor:      
-            |TEXTO { leyendoTipoString(1); strcpy($$,$1); }
+valor:      TEXTO { leyendoTipoString(1); strcpy($$,$1); }
             |operacion_matematica { leyendoTipoString(0); strcpy($$,$1);}
             ;
 operacion_matematica:   termino { strcpy($$,$1); }
