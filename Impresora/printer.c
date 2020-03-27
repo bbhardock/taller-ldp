@@ -62,10 +62,6 @@ void concatenaOperacion (char* origen, char* primero, char* operando, char* segu
     }
 }
 
-void RedefiniendoVariable (char* nombreVariable, char* valor) {
-    printf("\t%s = %s;\n",nombreVariable,valor);
-}
-
 void imprimir(char* comodines){
     printf("\tprintf(\"%s\"",comodines);
     for(int i = 0; i<contadorVars;i++){
