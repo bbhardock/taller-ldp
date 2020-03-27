@@ -31,9 +31,19 @@ void CrearVariable(char* nombreVariable,char* valor){
 }
 
 void concatenaOperacion (char* origen, char* primero, char* operando, char* segundo) {
-    strcat(primero,operando);
-    strcat(primero,segundo);
-    strcpy(origen,primero);
+    if (strcmp("(",primero)==0){
+        int mamanio=strlen(primero)+strlen(operando)+strlen(segundo);
+        char retorno[mamanio-2];
+        strcat(retorno,primero);
+        strcat(retorno,operando);
+        strcat(retorno,segundo);
+        strcpy(origen,retorno);
+        free(retorno);
+    }else{
+        strcat(primero,operando);
+        strcat(primero,segundo);
+        strcpy(origen,primero);       
+    }
 }
 
 void RedefiniendoVariable (char* nombreVariable, char* valor) {
