@@ -8,3 +8,4 @@ void imprimir(char*);
 void importChait();
 void imprimirVariable(char*, char*);
 void imprimirTexto(char*, char*);
+void validacionIf(char*);
