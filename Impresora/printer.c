@@ -4,11 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 int leyendoString = 0;
 char printVars[20][2048];
 int contadorVars = 0;
-
+char varExiste[100][2048];
+int cantVar = 0;
 
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
@@ -24,10 +26,23 @@ void leyendoTipoString(int esString){
 }
 
 void CrearVariable(char* nombreVariable,char* valor){
-    if (leyendoString == 1){
-        printf("\tchar %s[2048] = %s;\n", nombreVariable, valor);
+    bool noOcupado = true;
+    for(int i = 0;i < cantVar; i++){
+        if(strcmp(varExiste[i],nombreVariable) == 0){
+            noOcupado = false;
+            break;
+        }
+    }
+    if(noOcupado){
+        if (leyendoString == 1){
+            printf("\tchar %s[2048] = %s;\n", nombreVariable, valor);
+        }else{
+            printf("\tint %s = %s;\n", nombreVariable, valor);
+        }
+        strcpy(varExiste[cantVar],nombreVariable);
+        cantVar++;
     }else{
-        printf("\tint %s = %s;\n", nombreVariable, valor);
+        printf("\t%s = %s;\n",nombreVariable,valor);
     }
 }
 
@@ -77,7 +92,11 @@ void imprimirTexto(char* valor, char* origen){
 }
 
 void validacionIf(char* val){
-    printf("\tif(",val,")");
+    printf("\tif(%s > 0){\n",val);
+}
+
+void FinalIfCiclo(){
+    printf("\n}\n");
 }
 
 

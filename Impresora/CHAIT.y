@@ -37,7 +37,7 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for   
                                 | bloque_while 
                                 ;
-def_var:    VARIABLE '=' valor { CrearVariable($1,$3)}
+def_var:    VARIABLE '=' valor { CrearVariable($1,$3); }
             ;
 valor:      TEXTO { leyendoTipoString(1); strcpy($$,$1); }
             |operacion_matematica { leyendoTipoString(0); strcpy($$,$1);}
@@ -68,7 +68,8 @@ definir:    TEXTO { imprimirTexto($1,$$); }
 validacion: VARIABLE { strcpy($$,$1); }
             |NUMERO { strcpy($$,$1); }
             ;
-bloque_if:  si_Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea_logica')'']'
+bloque_if:  si_Marcos '¿'validacion '?' '(' linea_logica ')' { validacionIf($3); } { FinalIfCiclo(); }
+            |si_Marcos '¿'validacion { validacionIf($3); }'?' '('linea_logica')' { FinalIfCiclo(); } contrario '('linea_logica')'
             ;
 bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
                 ;
