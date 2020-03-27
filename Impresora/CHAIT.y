@@ -37,6 +37,7 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for   
                                 | bloque_while 
                                 ;
+                                
 def_var:    VARIABLE '=' valor { CrearVariable($1,$3); }
             ;
 valor:      TEXTO { leyendoTipoString(1); strcpy($$,$1); }
@@ -78,7 +79,9 @@ bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
 %%
 
 void yyerror(char* texto){
-    printf("\n TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT?? \n",texto,lineCounter);
+    printf("\n\tprintf(\"");
+    printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT??",texto,lineCounter);
+    printf("\");\n\n}");
 }
 
 int main(void){
