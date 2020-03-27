@@ -8,6 +8,8 @@
 int leyendoString = 0;
 char printVars[20][2048];
 int contadorVars = 0;
+
+
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
     printf("int main() {\n");

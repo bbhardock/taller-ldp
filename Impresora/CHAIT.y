@@ -77,7 +77,9 @@ bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
 %%
 
 void yyerror(char* texto){
-    printf("\n TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT?? \n",texto,lineCounter);
+    printf("printf(\"");
+    printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT??",texto,lineCounter);
+    printf("); \n}");
 }
 
 int main(void){
