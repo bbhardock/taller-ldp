@@ -56,7 +56,7 @@ factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
                     |'('operacion_matematica')' { concatenaOperacion($$,"(",$2,")"); }
                     ;  
-muestra:    mostrar '('unir')' { imprimir($3); strcpy($$,$1); }
+muestra:    mostrar '('unir')' { imprimir($3); }
             |mostrar '('import_chait')' { importChait(); }
             ;
 unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} | 
@@ -77,9 +77,7 @@ bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
 %%
 
 void yyerror(char* texto){
-    printf("printf(\"");
-    printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT??",texto,lineCounter);
-    printf("); \n}");
+    printf("\n TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT?? \n",texto,lineCounter);
 }
 
 int main(void){
