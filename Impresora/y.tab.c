@@ -1778,7 +1778,9 @@ yyreturn:
 
 
 void yyerror(char* texto){
-    printf("\n TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT?? \n",texto,lineCounter);
+    printf("\n\tprintf(\"");
+    printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT??",texto,lineCounter);
+    printf("\");\n\n}");
 }
 
 int main(void){
