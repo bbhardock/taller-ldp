@@ -8,7 +8,6 @@
 int leyendoString = 0;
 char printVars[20][2048];
 int contadorVars = 0;
-
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
     printf("int main() {\n");
@@ -31,12 +30,12 @@ void CrearVariable(char* nombreVariable,char* valor){
 }
 
 void concatenaOperacion (char* origen, char* primero, char* operando, char* segundo) {
-    if (strcmp("(",primero)==0){
-        int mamanio=strlen(primero)+strlen(operando)+strlen(segundo);
+    if (strcmp("(",primero)==0 && strcmp(")",segundo)==0){
+        int mamanio=strlen("(")+strlen(operando)+strlen(")");
         char retorno[mamanio-2];
-        strcat(retorno,primero);
+        strcpy(retorno,"(");
         strcat(retorno,operando);
-        strcat(retorno,segundo);
+        strcat(retorno,")");
         strcpy(origen,retorno);
         free(retorno);
     }else{

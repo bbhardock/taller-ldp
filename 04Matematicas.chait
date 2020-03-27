@@ -3,7 +3,7 @@ Poner_Boina
 variable_uno=1!
 variable_dos=2!
 
-suma=variable_uno+variable_dos*(6/3)*(2*2*2)!
+suma=variable_uno+variable_dos*(6/3)!
 
 mostrar(suma)!
 
