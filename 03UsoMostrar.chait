@@ -4,4 +4,10 @@ nombre_bueno = "Marcos Chait"!
 nombre_malo= "Charcos Mait"!
 mostrar("Hola soy " + nombre_bueno +" no "+ nombre_malo)!
 
+mostrar("Tonterias Chait es muy feliz conmigo a que si mi amor")!
+mostrar("\nClaro cielo pero no mates a nadie por favor")!
+
+contador_chait=3*3!
+mostrar("\n"+nombre_bueno+" tiene "+contador_chait+" paros cardiacos en su haber buen trabajo")!
+
 Sacar_Boina

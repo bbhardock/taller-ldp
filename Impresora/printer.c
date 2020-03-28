@@ -88,9 +88,13 @@ void imprimirTexto(char* valor, char* origen){
 }
 
 void validacionIf(char* val){
-    printf("\tif(%s > 0){\n",val);
+    printf("\tif(");
+    printf(val);
+    printf(" > 0)");
 }
-
+void InicioIfCiclo(){
+    printf("{\n");
+}
 void FinalIfCiclo(){
     printf("\n}\n");
 }
