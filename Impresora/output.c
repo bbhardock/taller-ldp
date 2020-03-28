@@ -7,10 +7,10 @@ int main() {
 	int var_1 = 1;
 	var_1 = 2;
 	printf("%s%s%s%s", "Hola soy ", nombre_bueno, " no ", nombre_malo);
-	printf("%s", "\nTonterias Chait es muy feliz conmigo a que si mi amor");
+	printf("%s", "\n\nTonterias Chait es muy feliz conmigo a que si mi amor");
 	printf("%s", "\nClaro cielo pero no mates a nadie por favor");
 	int contador_chait = 3*3;
-	printf("%s%s%s%d%s", "\n", nombre_bueno, " tiene ", contador_chait, " paros cardiacos en su haber, buen trabajo!");
+	printf("%s%s%s%d%s", "\n\n", nombre_bueno, " tiene ", contador_chait, " paros cardiacos en su haber, buen trabajo!");
 
  return 0;
 }
