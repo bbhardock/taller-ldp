@@ -70,7 +70,6 @@ validacion: VARIABLE { strcpy($$,$1); }
             |NUMERO { strcpy($$,$1); }
             ;
 bloque_if:  si_Marcos '¿'validacion '?' '(' linea_logica ')' { validacionIf($3); } { FinalIfCiclo(); }
-            |si_Marcos '¿'validacion { validacionIf($3); }'?' '('linea_logica')' { FinalIfCiclo(); } contrario '('linea_logica')'
             ;
 bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
                 ;

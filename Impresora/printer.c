@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stdbool.h>
 
+#include "symbolTable.h"
+
 int leyendoString = 0;
 char printVars[20][2048];
 int contadorVars = 0;
@@ -26,21 +28,15 @@ void leyendoTipoString(int esString){
 }
 
 void CrearVariable(char* nombreVariable,char* valor){
-    bool noOcupado = true;
-    for(int i = 0;i < cantVar; i++){
-        if(strcmp(varExiste[i],nombreVariable) == 0){
-            noOcupado = false;
-            break;
-        }
-    }
-    if(noOcupado){
+    int existeVariable= VarExists(nombreVariable);
+    if(existeVariable==0){
         if (leyendoString == 1){
             printf("\tchar %s[2048] = %s;\n", nombreVariable, valor);
+            AddVariable(nombreVariable,1);
         }else{
             printf("\tint %s = %s;\n", nombreVariable, valor);
+            AddVariable(nombreVariable,2);
         }
-        strcpy(varExiste[cantVar],nombreVariable);
-        cantVar++;
     }else{
         printf("\t%s = %s;\n",nombreVariable,valor);
     }
@@ -78,7 +74,13 @@ void importChait(){
 void imprimirVariable(char* valor, char* origen){
     strcpy(printVars[contadorVars],valor);
     contadorVars++;
-    strcpy(origen,"%i");
+    
+    int esString = VarIsString(valor);
+    if (esString == 1){
+        strcpy(origen, "%s");
+    } else if (esString == 2){
+        strcpy(origen,"%d");
+    }
 }
 
 void imprimirTexto(char* valor, char* origen){
