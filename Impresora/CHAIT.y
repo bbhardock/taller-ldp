@@ -19,8 +19,10 @@
 %token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario 
 %token NUMERO TEXTO VARIABLE termino_linea
 
+%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos
 %type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion
- 
+
+
 %%
 inicio:     Poner_Boina { inicio(); } linea_logica_rec Sacar_Boina { fin(); }
             ;
@@ -66,12 +68,12 @@ unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} |
 definir:    TEXTO { imprimirTexto($1,$$); } 
             |VARIABLE { imprimirVariable($1,$$); } 
             ;
-bloque_if:  si_Marcos '¿' validacion '?' '(' linea_logica_rec ')' {validacionIf($3);}
-            | si_Marcos '¿' validacion '?' '(' linea_logica_rec ')' contrario '(' linea_logica_rec ')'
+bloque_if:  si_Marcos validacion '?' '(' linea_logica_rec ')'{encabezadoIf($2,lineCounter); FinalIfCiclo();} 
+            | si_Marcos validacion '?' '(' linea_logica_rec ')' contrario '(' linea_logica_rec ')'
             ;
-bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica_rec ')'
+bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica_rec ')'{printf("CICLO WHILE");}
                 ;
-bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica_rec ')'
+bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica_rec ')'{printf("CICLO FOR");}
                 ;
 validacion: VARIABLE { strcpy($$,$1); }
             ;

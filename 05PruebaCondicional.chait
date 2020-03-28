@@ -1,12 +1,11 @@
 Poner_Boina
 
-variable_uno=1!
-variable_dos=2!
-variable_dos=4!
-variable_3=(variable_uno*variable_dos)!
-mostrar(variable_uno + "uno")!
-mostrar(variable_dos + "dos")!
-mostrar(variable_3 + "tres")!
+wea=1!
+nueva_wea=2!
+si_Marcos wea ? ( 
+   amiga_eri_pegante="wea"!
+   nueva_wea=3! 
+) 
 
 
 Sacar_Boina

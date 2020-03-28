@@ -35,8 +35,15 @@ void CrearVariable(char* nombreVariable,char* valor){
             printf("\tint %s = %s;\n", nombreVariable, valor);
             AddVariable(nombreVariable,2);
         }
+    //comprobar si estoy redefiniendo un string como string y un int como int
+    //ademas en c no se puede redefinir un string
     }else{
-        printf("\t%s = %s;\n",nombreVariable,valor);
+        if(leyendoString==1){
+            printf("\n\tprintf(\"");
+            printf("Error semantico (no se pueden redefinir strings ;)\");");
+        }else{
+            printf("\t%s = %s;\n",nombreVariable,valor);
+        }
     }
 }
 
@@ -91,22 +98,26 @@ void imprimirTexto(char* valor, char* origen){
 void validarVariableCondicional(char* nombreVariable, int numeroLinea){
     if(VarExists(nombreVariable)==1){
         if(VarIsString(nombreVariable)==2){//es un entero
-            printf("%s>0",nombreVariable);
+            printf("(%s>0)",nombreVariable);
         }else{
-            printf("TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner un string como condicional!!",numeroLinea);
+            printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner un string como condicional!!",numeroLinea);
         }
     }else{
-        printf("TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner una variable que no existe!!",numeroLinea);
+        printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner una variable que no existe!!",numeroLinea);
     }
 }
 
-
+void encabezadoIf(char* nombreVariable, int numeroLinea){
+    printf("\n\tif ");
+    validarVariableCondicional(nombreVariable,numeroLinea);
+    printf("{\n");
+}
 void validacionIf(char* val){
     printf("\tif(%s > 0){\n",val);
 }
 
 void FinalIfCiclo(){
-    printf("\n}\n");
+    printf("\n\t}\n");
 }
 
 

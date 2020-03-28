@@ -8,4 +8,6 @@ void importChait();
 void imprimirVariable(char*, char*);
 void imprimirTexto(char*, char*);
 void validacionIf(char*);
+void validarVariableCondicional(char*, int);
+void encabezadoIf(char*, int);
 void FinalIfCiclo();
