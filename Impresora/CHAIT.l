@@ -29,7 +29,7 @@
 
 [A-Za-z][A-Za-z0-9_]*    {strcpy(yylval.textValue,yytext); return VARIABLE;}
 
-\"([A-Za-z0-9 ]|(\\(\"|\\|n|t)))*\"  {strcpy(yylval.textValue,yytext); return TEXTO;}
+\"([A-Za-z0-9 =+-/*!()¿?{},;.<>]|(\\(\"|\\|n|t)))*\"  {strcpy(yylval.textValue,yytext); return TEXTO;}
 
 [\r]                    // Ignora los retornos de carro
 [\n]                    {lineCounter++;} // Ignora los saltos de linea
