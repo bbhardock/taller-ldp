@@ -118,9 +118,13 @@ void encabezadoIf(char* nombreVariable, int numeroLinea){
     printf("{\n");
 }
 void validacionIf(char* val){
-    printf("\tif(%s > 0){\n",val);
+    printf("\tif(");
+    printf(val);
+    printf(" > 0)");
 }
-
+void InicioIfCiclo(){
+    printf("{\n");
+}
 void FinalIfCiclo(){
     printf("\n\t}\n");
 }

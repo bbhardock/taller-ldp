@@ -39,7 +39,7 @@ statement_condicional_ciclo:    bloque_if
                                 | bloque_for   
                                 | bloque_while 
                                 ;
-                                
+
 def_var:    VARIABLE '=' valor { CrearVariable($1,$3); }
             ;
 valor:      TEXTO { leyendoTipoString(1); strcpy($$,$1); }

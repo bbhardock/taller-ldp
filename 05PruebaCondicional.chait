@@ -6,7 +6,10 @@ nueva_wea="string"!
 si_Marcos wea ? ( 
    amiga_eri_pegante="wea"!
    nueva_wea=3! 
-) 
+)
 
+si_Marcos ¿variable_dos?(
+    mostrar("Esta funcionando la raja el if")!
+)
 
 Sacar_Boina
