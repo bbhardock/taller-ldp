@@ -11,6 +11,5 @@ int main() {
 	printf("%s", "\nClaro cielo pero no mates a nadie por favor");
 	int contador_chait = 3*3;
 	printf("%s%s%s%d%s", "\n\n", nombre_bueno, " tiene ", contador_chait, " paros cardiacos en su haber, buen trabajo!");
-
  return 0;
 }
