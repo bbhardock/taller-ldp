@@ -1,14 +1,17 @@
 Poner_Boina
 
-wea=1!
+wea="CHAIT estas de suerte"!
 nueva_wea=2!
-nueva_wea="string"!
-si_Marcos wea ? ( 
+
+mostrar(wea+" te ganaste "+nueva_wea+" Tulas")!
+
+si_Marcos nueva_wea ? ( 
+
    amiga_eri_pegante="wea"!
    nueva_wea=3! 
 )
 
-si_Marcos ¿variable_dos?(
+si_Marcos nueva_wea?(
     mostrar("Esta funcionando la raja el if")!
 )
 
