@@ -1547,7 +1547,7 @@ yyreduce:
 
 /* Line 1464 of yacc.c  */
 #line 71 "CHAIT.y"
-    {encabezadoIf((yyvsp[(2) - (6)].textValue),lineCounter); printf("%s",(yyvsp[(5) - (6)].textValue)); FinalIfCiclo();}
+    {encabezadoIf((yyvsp[(2) - (6)].textValue),lineCounter); FinalIfCiclo();}
     break;
 
   case 34:

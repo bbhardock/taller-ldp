@@ -2,6 +2,7 @@ Poner_Boina
 
 wea=1!
 nueva_wea=2!
+nueva_wea="string"!
 si_Marcos wea ? ( 
    amiga_eri_pegante="wea"!
    nueva_wea=3! 

@@ -40,9 +40,14 @@ void CrearVariable(char* nombreVariable,char* valor){
     }else{
         if(leyendoString==1){
             printf("\n\tprintf(\"");
-            printf("Error semantico (no se pueden redefinir strings ;)\");");
+            printf("Error semantico\");\n");
         }else{
-            printf("\t%s = %s;\n",nombreVariable,valor);
+            if(VarIsString(nombreVariable)==2){
+                printf("\t%s = %s;\n",nombreVariable,valor);
+            }else{
+                printf("\n\tprintf(\"");
+                printf("Error semantico\");\n");    
+            }
         }
     }
 }
