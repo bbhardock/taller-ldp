@@ -69,11 +69,12 @@ definir:    TEXTO { imprimirTexto($1,$$); }
 validacion: VARIABLE { strcpy($$,$1); }
             |NUMERO { strcpy($$,$1); }
             ;
-bloque_if:  si_Marcos '¿'validacion '?' '(' linea_logica ')' { validacionIf($3); } { FinalIfCiclo(); }
+bloque_if:  si_Marcos '¿' validacion '?' '(' linea_logica_rec ')' {validacionIf($3);}
+            | si_Marcos '¿' validacion '?' '(' linea_logica_rec ')' contrario '(' linea_logica_rec ')'
             ;
-bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
+bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica_rec ')'
                 ;
-bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
+bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica_rec ')'
                 ;
 %%
 

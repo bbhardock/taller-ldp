@@ -11,8 +11,6 @@
 int leyendoString = 0;
 char printVars[20][2048];
 int contadorVars = 0;
-char varExiste[100][2048]; //determina 100 variables de largo maximo 2048 caracteres
-int cantVar = 0;
 
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
