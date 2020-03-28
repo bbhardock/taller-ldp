@@ -86,6 +86,20 @@ void imprimirTexto(char* valor, char* origen){
     contadorVars++;
     strcpy(origen,"%s");
 }
+//comprueba si es una variable numerica entera, curiosamente lo que imprime siempre es lo mismo
+//pide el numero de linea ya que es un susceptible a errores semanticos
+void validarVariableCondicional(char* nombreVariable, int numeroLinea){
+    if(VarExists(nombreVariable)==1){
+        if(VarIsString(nombreVariable)==2){//es un entero
+            printf("%s>0",nombreVariable);
+        }else{
+            printf("TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner un string como condicional!!",numeroLinea);
+        }
+    }else{
+        printf("TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner una variable que no existe!!",numeroLinea);
+    }
+}
+
 
 void validacionIf(char* val){
     printf("\tif(%s > 0){\n",val);
