@@ -38,15 +38,15 @@ void CrearVariable(char* nombreVariable,char* valor){
     //comprobar si estoy redefiniendo un string como string y un int como int
     //ademas en c no se puede redefinir un string
     }else{
-        if(leyendoString==1){
+        if(VarIsString(nombreVariable)==1){
             printf("\n\tprintf(\"");
-            printf("Error semantico\");\n");
+            printf("Error semantico (no se pueden redefinir strings)\");\n");
         }else{
-            if(VarIsString(nombreVariable)==2){
+            if(leyendoString==0){
                 printf("\t%s = %s;\n",nombreVariable,valor);
             }else{
                 printf("\n\tprintf(\"");
-                printf("Error semantico\");\n");    
+                printf("Error semantico (no se puede redefinir un int como string)\");\n");    
             }
         }
     }
