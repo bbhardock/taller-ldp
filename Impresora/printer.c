@@ -100,10 +100,15 @@ void imprimirTexto(char* valor, char* origen){
 }
 //comprueba si es una variable numerica entera, curiosamente lo que imprime siempre es lo mismo
 //pide el numero de linea ya que es un susceptible a errores semanticos
-void validarVariableCondicional(char* nombreVariable, int numeroLinea){
+void validarVariableCondicional(char* nombreVariable, int numeroLinea, int caso){
     if(VarExists(nombreVariable)==1){
         if(VarIsString(nombreVariable)==2){//es un entero
-            printf("(%s>0)",nombreVariable);
+            if(caso == 1){
+                printf("(%s>0)",nombreVariable);
+            }
+            else if(caso == 2){
+                printf("(%s>0)",nombreVariable);
+            }
         }else{
             printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner un string como condicional!!",numeroLinea);
         }
@@ -114,16 +119,24 @@ void validarVariableCondicional(char* nombreVariable, int numeroLinea){
 
 void encabezadoIf(char* nombreVariable, int numeroLinea){
     printf("\n\tif ");
-    validarVariableCondicional(nombreVariable,numeroLinea);
+    validarVariableCondicional(nombreVariable,numeroLinea,1);
     printf("{\n");
 }
-void validacionIf(char* val){
-    printf("\tif(");
-    printf(val);
-    printf(" > 0)");
-}
-void InicioIfCiclo(){
+void encabezadoWhile(char* nombreVariable, int numeroLinea){
+    printf("\n\twhile ");
+    validarVariableCondicional(nombreVariable,numeroLinea,2);
     printf("{\n");
+}
+void encabezadoFor(char* nombreVariable, int numeroLinea){
+    printf("\n\twhile ");
+    validarVariableCondicional(nombreVariable,numeroLinea,2);
+    printf("{\n");
+}
+void encabezadoElse(){
+    printf("else{\n");
+}
+void FinalFor(char* nombreVariable){
+    printf("\t%s--;\n\t}\n",nombreVariable);
 }
 void FinalIfCiclo(){
     printf("\n\t}\n");

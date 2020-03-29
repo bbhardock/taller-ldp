@@ -70,9 +70,9 @@ definir:    TEXTO { imprimirTexto($1,$$); }
             ;
 bloque_if:  si_Marcos validacion '?' '(' {encabezadoIf($2,lineCounter);} linea_logica_rec ')'{FinalIfCiclo();} 
             ;
-bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica_rec ')'{printf("CICLO WHILE");}
+bloque_while:   mientras_Chait '{'validacion'}' '('{ encabezadoWhile($3,lineCounter); }linea_logica_rec ')'{FinalIfCiclo();}
                 ;
-bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica_rec ')'{printf("CICLO FOR");}
+bloque_for:     por_cada_Bollo '{'validacion'}' '('{ encabezadoFor($3,lineCounter); }linea_logica_rec ')' {FinalFor($3);}
                 ;
 validacion: VARIABLE { strcpy($$,$1); }
             ;
