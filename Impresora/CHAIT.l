@@ -20,6 +20,7 @@
 "contrario"             return contrario;
 "conca"                 return conca;
 "MAYUS"                 return MAYUS;
+"mamanio"               return mamanio;
 "Sacar_Boina"           return Sacar_Boina;
 
 "!"                     return termino_linea;
