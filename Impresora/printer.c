@@ -155,7 +155,13 @@ void funcionConcatenar(char* texto1,char* texto2, int numeroLinea){
          printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar sin poner la variable del inicio!!);\n",numeroLinea);
     }
 }
-
+void funcionLen(char* texto,int numeroLinea){
+    if(VarIsString(texto)==1){
+        printf("\n\tif(true){for(int i = 0; i < 2048; i++){\n\t\tint tamaño = 0;\n\t\tif(%s[i]!=0){\n\t\t\ttamaño++;\n\t\t}\n\t}else{break;}\n\t}");
+    }else{
+         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!);\n",numeroLinea);
+    }
+}
 void funcionUpper(char* texto, int numeroLinea){
     if(VarIsString(texto)==1){
         printf("\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i] != 0){\n\t\t\tfor(int j = 97;j <= 122;j++){\n\t\t\t\tif(%s[i] == j){\n\t\t\t\t\t%s[i] = j-32;\n\t\t\t\t}\n\t\t\t}\n\t\t}else{break;}\n\t}\n",texto,texto,texto);

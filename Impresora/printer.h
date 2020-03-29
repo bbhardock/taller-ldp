@@ -17,4 +17,5 @@ void FinalFor(char*);
 void FinalIfCiclo();
 void tabulacion();
 void funcionConcatenar(char*,char*,int);
+void funcionLen(char*,int);
 void funcionUpper(char*, int);
