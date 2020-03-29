@@ -91,7 +91,7 @@ concaTexto:     TEXTO { leyendoTipoString(1); strcpy($$,$1); }
                 ;
 upper:          MAYUS '('concaVariable')' {funcionUpper($3,lineCounter);}
                 ;
-len:            mamanio '('concaVariable')' {funcionLongitud($3,lineCounter);}
+len:            mamanio '('concaVariable')' {funcionLen($3,lineCounter);}
                 ;
     
 %%
