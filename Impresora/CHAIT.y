@@ -16,10 +16,10 @@
     int intValue;
 }
 
-%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario conca MAYUS
+%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario conca MAYUS mamanio
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos concatenar upper
+%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos concatenar upper len
 %type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion concaTexto concaVariable
 
 
@@ -36,6 +36,7 @@ statement_linea:    def_var
                     | muestra
                     | concatenar 
                     | upper
+                    | len
                     ;
 statement_condicional_ciclo:    bloque_if  
                                 | bloque_for   
@@ -89,6 +90,8 @@ concaTexto:     TEXTO { leyendoTipoString(1); strcpy($$,$1); }
                 |VARIABLE { strcpy($$,$1); }
                 ;
 upper:          MAYUS '('concaVariable')' {funcionUpper($3,lineCounter);}
+                ;
+len:            mamanio '('concaVariable')' {funcionLongitud($3,lineCounter);}
                 ;
     
 %%
