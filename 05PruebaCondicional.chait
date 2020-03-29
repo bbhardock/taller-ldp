@@ -7,8 +7,21 @@ mostrar(wea+" te ganaste "+nueva_wea+" Tulas\n")!
 
 si_Marcos nueva_wea?( 
    amiga_eri_pegante="wea"!
-   nueva_wea=3! 
+   nueva_wea=3!
+   si_Marcos nueva_wea?(
+       mostrar("jej")!
+   ) 
 )
+contrario(
+    mostrar("se logro")!
+    si_Marcos nueva_wea?(
+        mostrar("funciona otro if dentro del else")!
+    )
+    contrario(
+        mostrar("wena wena")!
+    )
+)
+
 mientras_Chait {nueva_wea}(
     mostrar("Esta funcionando la raja el while\n")!
     nueva_wea = nueva_wea - 1!

@@ -1,0 +1,8 @@
+Poner_Boina
+chait = "Marcos "!
+marcos = "CHAIT"!
+
+conca (chait+marcos)!
+mostrar(chait)!
+
+Sacar_Boina

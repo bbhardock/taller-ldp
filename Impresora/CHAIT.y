@@ -16,11 +16,11 @@
     int intValue;
 }
 
-%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario 
+%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario conca
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos
-%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion
+%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos concatenar
+%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion concaTexto concaVariable
 
 
 %%
@@ -33,7 +33,8 @@ linea_logica:   statement_linea termino_linea
                 |statement_condicional_ciclo
                 ;
 statement_linea:    def_var 
-                    | muestra 
+                    | muestra
+                    | concatenar 
                     ;
 statement_condicional_ciclo:    bloque_if  
                                 | bloque_for   
@@ -68,14 +69,24 @@ unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} |
 definir:    TEXTO { imprimirTexto($1,$$); } 
             |VARIABLE { imprimirVariable($1,$$); } 
             ;
-bloque_if:  si_Marcos validacion '?' '(' {encabezadoIf($2,lineCounter);} linea_logica_rec ')'{FinalIfCiclo();} 
+bloque_if:  si_Marcos validacion '?' '(' {encabezadoIf($2,lineCounter);} linea_logica_rec fin_bloque
             ;
+fin_bloque: ')'{FinalIfCiclo();} 
+            |')'{FinalIfCiclo();} contrario '('{encabezadoElse();} linea_logica_rec')'{FinalIfCiclo();}
 bloque_while:   mientras_Chait '{'validacion'}' '('{ encabezadoWhile($3,lineCounter); }linea_logica_rec ')'{FinalIfCiclo();}
                 ;
 bloque_for:     por_cada_Bollo '{'validacion'}' '('{ encabezadoFor($3,lineCounter); }linea_logica_rec ')' {FinalFor($3);}
                 ;
 validacion: VARIABLE { strcpy($$,$1); }
             ;
+concatenar:     conca '('concaVariable '+'concaTexto')' {funcionConcatenar($3,$5,lineCounter);}
+                ;
+concaVariable:  VARIABLE { strcpy($$,$1); }
+                ;
+concaTexto:     TEXTO { leyendoTipoString(1); strcpy($$,$1); }
+                |VARIABLE { strcpy($$,$1); }
+                ;
+    
 %%
 
 void yyerror(char* texto){

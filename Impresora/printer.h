@@ -15,3 +15,5 @@ void encabezadoFor(char*, int);
 void encabezadoElse();
 void FinalFor(char*);
 void FinalIfCiclo();
+void tabulacion();
+void funcionConcatenar(char*,char*,int);

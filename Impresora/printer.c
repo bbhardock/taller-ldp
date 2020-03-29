@@ -133,13 +133,27 @@ void encabezadoFor(char* nombreVariable, int numeroLinea){
     printf("{\n");
 }
 void encabezadoElse(){
-    printf("else{\n");
+    printf("\telse{\n");
 }
 void FinalFor(char* nombreVariable){
     printf("\t%s--;\n\t}\n",nombreVariable);
 }
 void FinalIfCiclo(){
-    printf("\n\t}\n");
+    printf("\t}\n");
+}
+void tabulacion(){
+    printf("\t");
+}
+void funcionConcatenar(char* texto1,char* texto2, int numeroLinea){
+    if(VarIsString(texto1)==1){
+        if(leyendoString == 1 || VarIsString(texto2) == 1){
+            printf("\tstrcat(%s,%s);\n",texto1,texto2);
+        }else{
+            printf("\nprintfTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar una variable con un entero!!);\n",numeroLinea);
+        }
+    }else{
+         printf("\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar sin poner la variable del inicio!!);\n",numeroLinea);
+    }
 }
 
 

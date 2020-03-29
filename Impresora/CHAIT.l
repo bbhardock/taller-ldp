@@ -18,7 +18,7 @@
 "por_cada_Bollo"        return por_cada_Bollo;
 "import_chait"          return import_chait;
 "contrario"             return contrario;
-
+"conca"                 return conca;
 "Sacar_Boina"           return Sacar_Boina;
 
 "!"                     return termino_linea;
