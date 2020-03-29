@@ -9,7 +9,7 @@
 "por_cada_Bollo"        printf("Se lee la palabra reservada por cada Bollo \n");
 "import_chait"          printf("Se lee la palabra reservada import chait \n");
 "contrario"             printf("Se lee la palabra reservada contrario \n");
-
+"conca"                 printf("Se lee la palabra reservada conca \n");
 "Sacar_Boina"           printf("Se lee la palabra reservada Sacar Boina \n");
 
 "="                     printf("Se lee el TOKEN igualdad (=)\n");

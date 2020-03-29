@@ -2,7 +2,13 @@ Poner_Boina
 chait = "Marcos "!
 marcos = "CHAIT"!
 
+prueba = "tOdo maYuscula 69"!
+
 conca (chait+marcos)!
-mostrar(chait)!
+mostrar(chait+"\n")!
+
+mostrar(prueba+"\n")!
+MAYUS (prueba)!
+mostrar(prueba+"\n")!
 
 Sacar_Boina

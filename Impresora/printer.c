@@ -149,12 +149,19 @@ void funcionConcatenar(char* texto1,char* texto2, int numeroLinea){
         if(leyendoString == 1 || VarIsString(texto2) == 1){
             printf("\tstrcat(%s,%s);\n",texto1,texto2);
         }else{
-            printf("\nprintfTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar una variable con un entero!!);\n",numeroLinea);
+            printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar una variable con un entero!!);\n",numeroLinea);
         }
     }else{
-         printf("\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar sin poner la variable del inicio!!);\n",numeroLinea);
+         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar sin poner la variable del inicio!!);\n",numeroLinea);
     }
 }
 
+void funcionUpper(char* texto, int numeroLinea){
+    if(VarIsString(texto)==1){
+        printf("\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i] != 0){\n\t\t\tfor(int j = 97;j <= 122;j++){\n\t\t\t\tif(%s[i] == j){\n\t\t\t\t\t%s[i] = j-32;\n\t\t\t\t}\n\t\t\t}\n\t\t}else{break;}\n\t}\n",texto,texto,texto);
+    }else{
+         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!);\n",numeroLinea);
+    }
+}
 
 #endif

@@ -19,6 +19,7 @@
 "import_chait"          return import_chait;
 "contrario"             return contrario;
 "conca"                 return conca;
+"MAYUS"                 return MAYUS;
 "Sacar_Boina"           return Sacar_Boina;
 
 "!"                     return termino_linea;

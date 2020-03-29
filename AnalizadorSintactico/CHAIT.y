@@ -13,7 +13,7 @@
     int intValue;
 }
 
-%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario
+%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario conca
 %token NUMERO TEXTO VARIABLE termino_linea
 
 %type <textValue> VARIABLE NUMERO TEXTO definir unir
@@ -71,6 +71,13 @@ bloque_if:  si_Marcos '¿'validacion '?' '('linea_logica')''['contrario '('linea
 bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica')'
                 ;
 bloque_for:     por_cada_Bollo '{'validacion'}' '('linea_logica')'
+                ;
+concatenar:     conca '('concaVariable '+'concaTexto')'
+                ;
+concaVariable:  VARIABLE
+                ;
+concaTexto:     TEXTO
+                |VARIABLE 
                 ;
 %%
 
