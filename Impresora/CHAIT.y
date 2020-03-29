@@ -68,8 +68,8 @@ unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} |
 definir:    TEXTO { imprimirTexto($1,$$); } 
             |VARIABLE { imprimirVariable($1,$$); } 
             ;
-bloque_if:  si_Marcos validacion '?' '(' linea_logica_rec ')'{encabezadoIf($2,lineCounter); FinalIfCiclo();} 
-            | si_Marcos validacion '?' '(' linea_logica_rec ')' contrario '(' linea_logica_rec ')'
+bloque_if:  si_Marcos validacion '?' '(' {encabezadoIf($2,lineCounter);} linea_logica_rec ')'{FinalIfCiclo();} 
+            
             ;
 bloque_while:   mientras_Chait '{'validacion'}' '('linea_logica_rec ')'{printf("CICLO WHILE");}
                 ;
