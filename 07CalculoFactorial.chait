@@ -1,0 +1,12 @@
+Poner_Boina
+n=3!
+
+factorial=1!
+
+por_cada_Bollo {n}(
+    factorial=factorial*n!
+)
+
+mostrar(factorial)!
+
+Sacar_Boina
