@@ -1,33 +1,30 @@
 Poner_Boina
 
-wea="CHAIT estas de suerte"!
-nueva_wea=2!
+iterador=2!
 prueba = 5!
-mostrar(wea+" te ganaste "+nueva_wea+" Tulas\n")!
 
-si_Marcos nueva_wea?( 
-   amiga_eri_pegante="wea"!
-   nueva_wea=3!
-   si_Marcos nueva_wea?(
-       mostrar("jej")!
+si_Marcos iterador?( 
+   iterador=3!
+   si_Marcos iterador?(
+       mostrar("primer if dentro de otro if")!
    ) 
 )
 contrario(
     mostrar("se logro")!
-    si_Marcos nueva_wea?(
+    si_Marcos iterador?(
         mostrar("funciona otro if dentro del else")!
     )
     contrario(
-        mostrar("wena wena")!
+        mostrar("Funciona el else")!
     )
 )
 
-mientras_Chait {nueva_wea}(
+mientras_Chait {iterador}(
     mostrar("Esta funcionando la raja el while\n")!
-    nueva_wea = nueva_wea - 1!
+    iterador = iterador - 1!
 )
-nueva_wea = 4!
-por_cada_Bollo {nueva_wea}(
+iterador = 4!
+por_cada_Bollo {iterador}(
     prueba = prueba + 2!
     mostrar(prueba+"\n")!
 )

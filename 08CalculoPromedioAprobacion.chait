@@ -6,7 +6,6 @@ nota_prueba_uno = 10!
 nota_prueba_dos = 10!
 nota_prueba_tres = 10!
 
-
 promedio=(nota_prueba_uno+nota_prueba_dos+nota_prueba_tres)/cantidad_pruebas!
 
 promedio=promedio/40!
