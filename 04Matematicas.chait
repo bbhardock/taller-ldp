@@ -5,6 +5,7 @@ variable_dos=2!
 variable_tres=3!
 
 variable_3=(variable_uno+variable_dos+variable_3)/4!
+
 suma=variable_uno+variable_dos*(6/3)!
 suma_final=variable_3+suma!
 mostrar(suma_final)!
