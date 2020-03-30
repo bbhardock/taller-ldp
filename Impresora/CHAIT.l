@@ -21,6 +21,8 @@
 "conca"                 return conca;
 "MAYUS"                 return MAYUS;
 "mamanio"               return mamanio;
+"CHAIT_eres_unico"      return CHAIT_eres_unico;
+
 "Sacar_Boina"           return Sacar_Boina;
 
 "!"                     return termino_linea;

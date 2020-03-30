@@ -170,5 +170,12 @@ void funcionUpper(char* texto, int numeroLinea){
          printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!);\n",numeroLinea);
     }
 }
+void funcionCaracUnico(char* texto, int numeroLinea){
+    if(VarIsString(texto)==1){
+        printf("\n\tif(true){\n\tint tamanio = 0;\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i]!=0){\n\t\t\ttamanio++;\n\t\t}else{break;}\n\t}\n\tchar comparar[tamanio];\n\tint uwu = 0;\n\tfor(int i = 0; i < tamanio;i++){\n\t\tbool esta = true;\n\t\tfor(int j = 0; j < tamanio; j++){\n\t\t\tif(%s[i] == comparar[j]){\n\t\t\t\testa = false;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\tif(esta){\n\t\t\tcomparar[uwu] = %s[i];\n\t\t\tuwu++;\n\t\t}\n\t}\n\tprintf(comparar);\n\t}\n",texto,texto);
+    }else{
+         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de buscar caracteres unicos en un entero!!);\n",numeroLinea);
+    }
+}
 
 #endif

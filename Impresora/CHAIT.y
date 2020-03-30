@@ -16,10 +16,10 @@
     int intValue;
 }
 
-%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario conca MAYUS mamanio
+%token Poner_Boina mostrar si_Marcos mientras_Chait por_cada_Bollo import_chait Sacar_Boina contrario conca MAYUS mamanio CHAIT_eres_unico
 %token NUMERO TEXTO VARIABLE termino_linea
 
-%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos concatenar upper len
+%type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos concatenar upper len caracterUnico
 %type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion concaTexto concaVariable
 
 
@@ -93,7 +93,8 @@ upper:          MAYUS '('concaVariable')' {funcionUpper($3,lineCounter);}
                 ;
 len:            mamanio '('concaVariable')' {funcionLen($3,lineCounter);}
                 ;
-    
+caracterUnico:  CHAIT_eres_unico '('concaVariable')' {funcionCaracUnico($3,lineCounter);}
+                ;
 %%
 
 void yyerror(char* texto){

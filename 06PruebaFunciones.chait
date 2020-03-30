@@ -1,7 +1,7 @@
 Poner_Boina
 chait = "Marcos "!
 marcos = "CHAIT"!
-
+ewe = "ffooati"!
 prueba = "tOdo maYuscula 69"!
 
 conca (chait+marcos)!
@@ -12,5 +12,7 @@ MAYUS (prueba)!
 mostrar(prueba+"\n")!
 
 mamanio(marcos)!
+
+CHAIT_eres_unico(ewe)!
 
 Sacar_Boina
