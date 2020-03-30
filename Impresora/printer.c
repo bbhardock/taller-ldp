@@ -64,6 +64,20 @@ void concatenaOperacion (char* origen, char* primero, char* operando, char* segu
         strcat(retorno,")");
         strcpy(origen,retorno);
         free(retorno);
+    }else if(strcmp("-",primero)==0 && segundo==NULL){
+        int mamanio=strlen("-")+strlen(operando);
+        char retorno[mamanio-1];
+        strcpy(retorno,"-");
+        strcat(retorno,operando);
+        strcpy(origen,retorno);
+        free (retorno);
+    }else if(strcmp("+",primero)==0 && segundo==NULL){
+        int mamanio=strlen("+")+strlen(operando);
+        char retorno[mamanio-1];
+        strcpy(retorno,"+");
+        strcat(retorno,operando);
+        strcpy(origen,retorno);
+        free (retorno);    
     }else{
         strcat(primero,operando);
         strcat(primero,segundo);
