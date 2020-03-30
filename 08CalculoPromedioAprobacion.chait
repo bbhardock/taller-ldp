@@ -1,0 +1,21 @@
+Poner_Boina
+
+cantidad_pruebas = 3!
+
+nota_prueba_uno = 10!
+nota_prueba_dos = 10!
+nota_prueba_tres = 10!
+
+suma= nota_prueba_uno+nota_prueba_dos+nota_prueba_tres!
+
+promedio=suma/cantidad_pruebas!
+
+promedio=promedio/40!
+
+si_Marcos promedio ?(
+    mostrar("Aprobaste")!
+) contrario (
+    mostrar ("No aprobaste na mano")!
+)
+
+Sacar_Boina
