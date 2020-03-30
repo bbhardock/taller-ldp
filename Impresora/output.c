@@ -1,22 +1,16 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 int main() {
-	int cantidad_pruebas = 3;
-	int nota_prueba_uno = 10;
-	int nota_prueba_dos = 10;
-	int nota_prueba_tres = 10;
-	int promedio = (nota_prueba_uno+nota_prueba_dos+nota_prueba_tres)/cantidad_pruebas;
-	promedio = promedio/40;
-
-	if (promedio>0){
-	printf("%s", "Aprobaste");
-	}
-	else{
-	printf("%s", "No aprobaste na mano");
-	}
+	int variable_uno = 1;
+	int variable_dos = 2;
+	int variable_tres = 3;
+	int variable_cuatro = 4;
+	int variable_3 = (variable_uno+variable_dos+variable_3) / variable_cuatro;
+	int suma = variable_uno+variable_dos*(6/3);
+	int suma_final = variable_3+suma;
+	printf("%d", suma_final);
 
  return 0;
 }
