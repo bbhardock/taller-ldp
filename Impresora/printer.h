@@ -19,3 +19,4 @@ void tabulacion();
 void funcionConcatenar(char*,char*,int);
 void funcionLen(char*,int);
 void funcionUpper(char*, int);
+void funcionCaracUnico(char*, int);

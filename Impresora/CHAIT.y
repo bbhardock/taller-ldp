@@ -37,6 +37,7 @@ statement_linea:    def_var
                     | concatenar 
                     | upper
                     | len
+                    | caracterUnico
                     ;
 statement_condicional_ciclo:    bloque_if  
                                 | bloque_for   

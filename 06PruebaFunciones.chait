@@ -13,6 +13,8 @@ mostrar(prueba+"\n")!
 
 mamanio(marcos)!
 
+mostrar(ewe+"\n")!
 CHAIT_eres_unico(ewe)!
 
+mostrar(import_chait)!
 Sacar_Boina
