@@ -2,6 +2,7 @@ Poner_Boina
 chait = "Marcos "!
 marcos = "CHAIT"!
 ewe = "ffooati"!
+repetido = "PORQUEE todoo see rrepitte"!
 prueba = "tOdo maYuscula 69"!
 
 conca (chait+marcos)!
@@ -15,6 +16,10 @@ mamanio(marcos)!
 
 mostrar(ewe+"\n")!
 CHAIT_eres_unico(ewe)!
+mostrar(repetido+"\n")!
+CHAIT_eres_unico(repetido)!
+mostrar(prueba+"\n")!
+CHAIT_eres_unico(prueba)!
 
 mostrar(import_chait)!
 Sacar_Boina
