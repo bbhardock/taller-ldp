@@ -21,7 +21,7 @@
 %token NUMERO TEXTO VARIABLE termino_linea
 
 %type<textValue> linea_logica  linea_logica_rec statement_linea statement_condicional_ciclo def_var muestra bloque_if bloque_for bloque_while si_Marcos concatenar upper len caracterUnico
-%type <textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion concaTexto concaVariable
+%type<textValue> VARIABLE NUMERO TEXTO definir unir valor operacion_matematica termino factor factor_primario validacion concaTexto concaVariable
 
 
 %%
@@ -59,6 +59,8 @@ termino:    factor
             | factor '/' termino { concatenaOperacion($$,$1,"/",$3); }
             ;
 factor:     factor_primario
+            |'-' factor_primario {concatenaOperacion($$,"-",$2,NULL);}
+            |'+' factor_primario {concatenaOperacion($$,"+",$2,NULL);}
             ;
 factor_primario:    VARIABLE { strcpy($$,$1); }
                     | NUMERO { strcpy($$,$1); }
