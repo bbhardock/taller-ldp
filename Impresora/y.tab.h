@@ -46,10 +46,13 @@
      import_chait = 263,
      Sacar_Boina = 264,
      contrario = 265,
-     NUMERO = 266,
-     TEXTO = 267,
-     VARIABLE = 268,
-     termino_linea = 269
+     conca = 266,
+     MAYUS = 267,
+     mamanio = 268,
+     NUMERO = 269,
+     TEXTO = 270,
+     VARIABLE = 271,
+     termino_linea = 272
    };
 #endif
 /* Tokens.  */
@@ -61,10 +64,13 @@
 #define import_chait 263
 #define Sacar_Boina 264
 #define contrario 265
-#define NUMERO 266
-#define TEXTO 267
-#define VARIABLE 268
-#define termino_linea 269
+#define conca 266
+#define MAYUS 267
+#define mamanio 268
+#define NUMERO 269
+#define TEXTO 270
+#define VARIABLE 271
+#define termino_linea 272
 
 
 
@@ -82,7 +88,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 86 "y.tab.h"
+#line 92 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
