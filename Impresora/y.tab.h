@@ -49,10 +49,11 @@
      conca = 266,
      MAYUS = 267,
      mamanio = 268,
-     NUMERO = 269,
-     TEXTO = 270,
-     VARIABLE = 271,
-     termino_linea = 272
+     CHAIT_eres_unico = 269,
+     NUMERO = 270,
+     TEXTO = 271,
+     VARIABLE = 272,
+     termino_linea = 273
    };
 #endif
 /* Tokens.  */
@@ -67,10 +68,11 @@
 #define conca 266
 #define MAYUS 267
 #define mamanio 268
-#define NUMERO 269
-#define TEXTO 270
-#define VARIABLE 271
-#define termino_linea 272
+#define CHAIT_eres_unico 269
+#define NUMERO 270
+#define TEXTO 271
+#define VARIABLE 272
+#define termino_linea 273
 
 
 
@@ -80,7 +82,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1685 of yacc.c  */
-#line 14 "CHAIT.y"
+#line 15 "CHAIT.y"
 
     char textValue[2048];
     int intValue;
@@ -88,7 +90,7 @@ typedef union YYSTYPE
 
 
 /* Line 1685 of yacc.c  */
-#line 92 "y.tab.h"
+#line 94 "y.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
