@@ -1,0 +1,21 @@
+Poner_Boina
+
+a=0!
+b=1!
+n=10!
+
+n=n+1!
+
+mostrar(b+" ")!
+
+comprobacion=n-2!
+mientras_Chait{comprobacion} (
+    c=a+b!
+    a=b!
+    b=c!
+    mostrar(c+" ")!
+    n=n-1!
+    comprobacion=n-2!
+)
+
+Sacar_Boina
