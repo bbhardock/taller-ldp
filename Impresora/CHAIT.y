@@ -9,6 +9,7 @@
     void yyerror(char*);
 
     int lineCounter = 1;
+    int contadorIndentacion = 0;
 %}
 
 %union{
@@ -72,14 +73,14 @@ unir:       definir '+' unir { strcat($1,$3); strcpy($$,$1);} |
 definir:    TEXTO { imprimirTexto($1,$$); } 
             |VARIABLE { imprimirVariable($1,$$); } 
             ;
-bloque_if:  si_Marcos validacion '?' '(' {encabezadoIf($2,lineCounter);} linea_logica_rec fin_bloque
+bloque_if:  si_Marcos validacion '?' '(' {encabezadoIf($2,lineCounter); contadorIndentacion++;} linea_logica_rec fin_bloque
             ;
-fin_bloque: ')'{FinalIfCiclo();} 
-            |')'{FinalIfCiclo();} contrario '('{encabezadoElse();} linea_logica_rec')'{FinalIfCiclo();}
+fin_bloque: ')'{FinalIfCiclo(); contadorIndentacion--;} 
+            |')'{FinalIfCiclo();} contrario '('{encabezadoElse(); } linea_logica_rec')'{FinalIfCiclo(); contadorIndentacion--;}
             ;
-bloque_while:   mientras_Chait '{'validacion'}' '('{ encabezadoWhile($3,lineCounter); }linea_logica_rec ')'{FinalIfCiclo();}
+bloque_while:   mientras_Chait '{'validacion'}' '('{ encabezadoWhile($3,lineCounter); contadorIndentacion++;}linea_logica_rec ')'{FinalIfCiclo(); contadorIndentacion--;}
                 ;
-bloque_for:     por_cada_Bollo '{'validacion'}' '('{ encabezadoFor($3,lineCounter); }linea_logica_rec ')' {FinalFor($3);}
+bloque_for:     por_cada_Bollo '{'validacion'}' '('{ encabezadoFor($3,lineCounter); contadorIndentacion++;}linea_logica_rec ')' {FinalFor($3); contadorIndentacion--;}
                 ;
 validacion: VARIABLE { strcpy($$,$1); }
             ;
@@ -101,7 +102,10 @@ caracterUnico:  CHAIT_eres_unico '('concaVariable')' {funcionCaracUnico($3,lineC
 void yyerror(char* texto){
     printf("\n\tprintf(\"");
     printf("TE PASO EL MEDIO %s EN LA LINEA %i --- CUANDO VAS A APRENDER CHAIT??",texto,lineCounter);
-    printf("\");\n\n}");
+    printf("\");");
+    printf("\n\t exit(-1);");
+    printf("\n\n\t}");
+    for(int i=0;i<contadorIndentacion;i++) printf("\n}");
 }
 
 int main(void){

@@ -11,6 +11,7 @@
 int leyendoString = 0;
 char printVars[20][2048];
 int contadorVars = 0;
+int contadorIndentaciones = 0;
 
 void inicio(){
     printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stdbool.h>\n");
@@ -41,12 +42,14 @@ void CrearVariable(char* nombreVariable,char* valor){
         if(VarIsString(nombreVariable)==1){
             printf("\n\tprintf(\"");
             printf("Error semantico (no se pueden redefinir strings)\");\n");
+            //terminarProgramaError();
         }else{
             if(leyendoString==0){
                 printf("\t%s = %s;\n",nombreVariable,valor);
             }else{
                 printf("\n\tprintf(\"");
-                printf("Error semantico (no se puede redefinir un int como string)\");\n");    
+                printf("Error semantico (no se puede redefinir un int como string)\");\n");
+                //terminarProgramaError();    
             }
         }
     }
@@ -110,10 +113,14 @@ void validarVariableCondicional(char* nombreVariable, int numeroLinea, int caso)
                 printf("(%s>0)",nombreVariable);
             }
         }else{
-            printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner un string como condicional!!",numeroLinea);
+            printf("\n\tprintf(\"");
+            printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner un string como condicional!!\");\n",numeroLinea);
+            //terminarProgramaError();
         }
     }else{
-        printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner una variable que no existe!!",numeroLinea);
+        printf("\n\tprintf(\"");
+        printf("\nTE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre poner una variable que no existe!!\");\n",numeroLinea);
+        //terminarProgramaError();
     }
 }
 
@@ -121,38 +128,50 @@ void encabezadoIf(char* nombreVariable, int numeroLinea){
     printf("\n\tif ");
     validarVariableCondicional(nombreVariable,numeroLinea,1);
     printf("{\n");
+    contadorIndentaciones++;
 }
 void encabezadoWhile(char* nombreVariable, int numeroLinea){
     printf("\n\twhile ");
     validarVariableCondicional(nombreVariable,numeroLinea,2);
     printf("{\n");
+    contadorIndentaciones;
 }
 void encabezadoFor(char* nombreVariable, int numeroLinea){
     printf("\n\twhile ");
     validarVariableCondicional(nombreVariable,numeroLinea,2);
     printf("{\n");
+    contadorIndentaciones++;
 }
 void encabezadoElse(){
     printf("\telse{\n");
 }
 void FinalFor(char* nombreVariable){
     printf("\t%s--;\n\t}\n",nombreVariable);
+    contadorIndentaciones--;
 }
 void FinalIfCiclo(){
     printf("\t}\n");
+    contadorIndentaciones--;
 }
 void tabulacion(){
-    printf("\t");
+    printf("\t");   
+}
+void terminarProgramaError(){
+    printf("\nexit(-1);");
+    printf("\n}");
+    for(int i=0;i<contadorIndentaciones;i++) printf("\n}");
 }
 void funcionConcatenar(char* texto1,char* texto2, int numeroLinea){
     if(VarIsString(texto1)==1){
         if(leyendoString == 1 || VarIsString(texto2) == 1){
             printf("\tstrcat(%s,%s);\n",texto1,texto2);
         }else{
-            printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar una variable con un entero!!);\n",numeroLinea);
+            printf("\t\nprintf(\"TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar una variable con un entero!!\");\n",numeroLinea);
+            //terminarProgramaError();
         }
     }else{
-         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar sin poner la variable del inicio!!);\n",numeroLinea);
+        printf("\t\nprintf(\"TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre concatenar sin poner la variable del inicio!!\");\n",numeroLinea);
+        //terminarProgramaError();
     }
 }
 void funcionLen(char* texto,int numeroLinea){
@@ -160,21 +179,24 @@ void funcionLen(char* texto,int numeroLinea){
         printf("\n\tif(true){\n\tint tamanio = 0;\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i]!=0){\n\t\t\ttamanio++;\n\t\t}else{break;}\n\t}",texto);
         printf("\n\tprintf(\"El tamanio del string de la variable %s es: %%d %%s \",tamanio,\"\\n\");\n\t}\n",texto);
     }else{
-         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!);\n",numeroLinea);
+        printf("\t\nprintf(\"TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!\");\n",numeroLinea);
+        //terminarProgramaError();
     }
 }
 void funcionUpper(char* texto, int numeroLinea){
     if(VarIsString(texto)==1){
         printf("\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i] != 0){\n\t\t\tfor(int j = 97;j <= 122;j++){\n\t\t\t\tif(%s[i] == j){\n\t\t\t\t\t%s[i] = j-32;\n\t\t\t\t}\n\t\t\t}\n\t\t}else{break;}\n\t}\n",texto,texto,texto);
     }else{
-         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!);\n",numeroLinea);
+        printf("\t\nprintf(\"TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!\");\n",numeroLinea);
+        //terminarProgramaError();
     }
 }
 void funcionCaracUnico(char* texto, int numeroLinea){
     if(VarIsString(texto)==1){
         printf("\n\tif(true){\n\tint tamanio = 0;\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i]!=0){\n\t\t\ttamanio++;\n\t\t}else{break;}\n\t}\n\tchar comparar[tamanio];\n\tint uwu = 0;\n\tfor(int i = 0; i < tamanio;i++){\n\t\tbool esta = true;\n\t\tfor(int j = 0; j < tamanio; j++){\n\t\t\tif(%s[i] == comparar[j]){\n\t\t\t\testa = false;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\tif(esta && %s[i] != 0){\n\t\t\tcomparar[uwu] = %s[i];\n\t\t\tuwu++;\n\t\t\tputchar(%s[i]);\n\t\t}\n\t}\n\tputchar(\'\\n\');\n\t}\n",texto,texto,texto,texto,texto);
     }else{
-         printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de buscar caracteres unicos en un entero!!);\n",numeroLinea);
+        printf("\t\nprintf(\"TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de buscar caracteres unicos en un entero!!\");\n",numeroLinea);
+        //terminarProgramaError();
     }
 }
 
