@@ -13,7 +13,7 @@ char printVars[20][2048];
 int contadorVars = 0;
 
 void inicio(){
-    printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n");
+    printf("#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <stdbool.h>\n");
     printf("int main() {\n");
 }
 
@@ -157,7 +157,8 @@ void funcionConcatenar(char* texto1,char* texto2, int numeroLinea){
 }
 void funcionLen(char* texto,int numeroLinea){
     if(VarIsString(texto)==1){
-        printf("\n\tif(true){for(int i = 0; i < 2048; i++){\n\t\tint tamaño = 0;\n\t\tif(%s[i]!=0){\n\t\t\ttamaño++;\n\t\t}\n\t}else{break;}\n\t}");
+        printf("\n\tif(true){\n\tint tamanio = 0;\n\tfor(int i = 0; i < 2048; i++){\n\t\tif(%s[i]!=0){\n\t\t\ttamanio++;\n\t\t}else{break;}\n\t}",texto);
+        printf("\n\tprintf(\"El tamanio del string es: %%d \",tamanio);\n\t}");
     }else{
          printf("\t\nprintf(TE MANDASTE EL MEDIO semantic error EN LA LINEA %d \n como se te ocurre tratar de convertir un entero en mayusculas!!);\n",numeroLinea);
     }
